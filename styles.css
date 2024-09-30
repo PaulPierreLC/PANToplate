@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Praise&display=swap');
 
+/* BODY */
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
 
 header {
     background-color: #FF6F61;
@@ -123,9 +136,71 @@ header img {
     display: inline-block;
 }
 
+/* MAIN */
 
+main {
+    height: 100%;
+    flex: 1;
+}
 
+/* FOOTER */
 
+footer {
+    background-color: #FF6F61;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.footer-social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer-social-links li {
+    margin: 0 10px;
+}
+
+.footer-social-links img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-mention {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.footer-mention li {
+    margin: 0 60px;
+}
+.footer-mention a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+    
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 768px) {
     header {
