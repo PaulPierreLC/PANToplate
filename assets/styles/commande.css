@@ -1,0 +1,14 @@
+main {
+    flex-grow: 1;
+}
+
+.adresse {
+    margin-top: 10%;
+    font-size: 3em;
+    text-align: center;
+}
+
+.recherche {
+    display: inline-flex;
+    overflow: hidden;
+}
