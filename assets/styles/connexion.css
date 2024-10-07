@@ -139,9 +139,65 @@ header img {
 /* MAIN */
 
 main {
+    border: solid red 3px;
     height: 100%;
     flex: 1;
+    background-image: url('../../assets/images/connexion/top-view-pasta-seafood-wooden-table.jpg');
+    background-size: cover;
 }
+
+.bloc {
+    border: solid rgb(0, 47, 255) 3px;
+    background-color: rgb(40, 72, 72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 50%;
+    margin-left: 55% ;
+    margin-top: 10% ;
+}
+
+.bloc .inputs{
+    border: solid rgb(200, 255, 0) 3px;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ .id {
+    border: solid red 3px;
+    font-size: 100%;
+    width: 100%;
+    height: 45%;
+ }
+
+ .mdp {
+    border: solid red 3px;
+    font-size: 100%;
+    width: 100%;
+    height: 45%;
+ }
+
+ .boutons {
+    border: solid red 3px;
+    margin-top: 10%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin-left: 20%;
+    height: 10%;
+    width: 60%;
+ }
+
+ .checkbox{
+    border: solid red 3px;
+    background-color: white;
+ }
+
 
 /* FOOTER */
 
