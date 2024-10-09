@@ -1,20 +1,33 @@
-var selection = "";
-var i = 0;
+function getCurrentHour() {
+  const options = {
+    timeZone: 'Europe/Paris',
+    hour: '2-digit',
+    hour12: false
+  };
 
-for(var i = 0; i < 23; i++)
-{
-    var j = zeroFill(i, 2);
-    selection += "<option value='"+ j +"00'>"+ j + ":00" + "</option>";
-    selection += "<option value='"+ j +"30'>"+ j + ":30" + "</option>";
-}
-$("select").html(selection);
+  const formatter = new Intl.DateTimeFormat([], options);
+  const cetTime = formatter.format(new Date());
 
-function zeroFill( number, width )
-{
-  width -= number.toString().length;
-  if ( width > 0 )
-  {
-    return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
-  }
-  return number + ""; // always return a string
+  return cetTime
 }
+
+function generateTimeOptions() {
+    const select = document.getElementById('heure');
+    
+    const curr_hour = getCurrentHour();
+
+    for (let hour = curr_hour; hour < 24; hour++) {
+        for (let minutes = 0; minutes < 60; minutes += 15) {
+            const option = document.createElement('option');
+            
+            const time = `${String(hour).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+            
+            option.value = time;
+            option.textContent = time;
+            
+            select.appendChild(option);
+        }
+    }
+}
+
+window.onload = generateTimeOptions;
