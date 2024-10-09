@@ -1,1 +1,1 @@
-food_platterhttps://pixabay.com/photos/platter-food-starters-meal-feast-2009590/
+food_platter1: https://pixabay.com/photos/platter-food-starters-meal-feast-2009590/

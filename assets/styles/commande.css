@@ -1,11 +1,27 @@
-main {
+.flex {
     flex-grow: 1;
+}
+
+.background {
+    background-image: url("/assets/images/food_platter1.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(6px);
 }
 
 .adresse {
     margin-top: 10%;
     font-size: 3em;
     text-align: center;
+}
+
+.slogan_livre {
+   color: white;
+   font-weight: bold;
 }
 
 .recherche {
