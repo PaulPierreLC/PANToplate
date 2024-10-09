@@ -46,7 +46,31 @@
                 <div class="recherche">
                     <input type="text" placeholder="Adresse">
                     <form action="/action_page.php">
-                        <select name="heure" id="heure">
+                        <select name="heure" id="heure", class="#heure">
+                            <script>
+                                function populate(selector) {
+                                    var select = $(selector);
+                                    var hours, minutes, ampm;
+                                    for(var i = 420; i <= 1320; i += 15){
+                                        hours = Math.floor(i / 60);
+                                        minutes = i % 60;
+                                        if (minutes < 10){
+                                            minutes = '0' + minutes; // adding leading zero
+                                        }
+                                        ampm = hours % 24 < 12 ? 'AM' : 'PM';
+                                        hours = hours % 12;
+                                        if (hours === 0){
+                                            hours = 12;
+                                        }
+                                        select.append($('<option></option>')
+                                            .attr('value', i)
+                                            .text(hours + ':' + minutes + ' ' + ampm)); 
+                                    }
+                                }
+
+                                populate('#heure'); // use selector for your select
+
+                            </script>
                             <script type="text/javascript" src="/assets/scripts/commande.js"></script>
                         </select>
                     </form>
