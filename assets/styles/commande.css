@@ -1,24 +1,28 @@
-.flex {
+/* .flex {
     flex-grow: 1;
-}
+} */
 
 .background {
     background-image: url("/assets/images/food_platter1.jpg");
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    /* height: 100%; */
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* z-index: -1; */
     filter: blur(6px);
+}
+
+main {
+    height:20%;
 }
 
 .adresse {
     margin-top: 10%;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
     font-size: 3em;
     text-align: center;
-}
+} 
 
 .slogan_livre {
    color: white;
@@ -26,7 +30,7 @@
 }
 
 .recherche {
-    margin-top:1em;
+    margin-top: 1em;
     gap: 10px;
     height: 30px;
     display: inline-flex;
