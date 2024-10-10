@@ -157,7 +157,14 @@ main {
     height: calc(95.1vh - 140px);
 }
 
+.button-wrapper {
+    margin-bottom: 50px;
+    display: inline-flex;
+    justify-content: center; 
+}
+
 .order-button {
+    display: inline-block;
     background-color: #FF6F61;
     font-family: 'Poppins', sans-serif;;
     color: white;
@@ -167,9 +174,10 @@ main {
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 40px;
+    position: relative;
+    margin-top: 50px;
 }
-
+    
 .order-button:hover {
     background-color: #ff4d3d;
 }
@@ -177,7 +185,7 @@ main {
 .carrousel {
     position: absolute;
     max-width: 600px;
-    margin: 20px auto;
+    margin-top: 50px;
     overflow: hidden;
     border-radius: 15px;
 }
