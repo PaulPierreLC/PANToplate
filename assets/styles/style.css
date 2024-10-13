@@ -1,0 +1,358 @@
+/******************** Global ********************/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Praise&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/********** Acceuil **********/
+
+/***** MAIN *****/
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url(/assets/images/Accueil/fond.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(95.1vh - 140px);
+}
+
+.button-wrapper {
+    margin-bottom: 50px;
+    display: inline-flex;
+    justify-content: center; 
+}
+
+.order-button {
+    display: inline-block;
+    background-color: #FF6F61;
+    font-family: 'Poppins', sans-serif;;
+    color: white;
+    font-size: 24px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 50px;
+}
+    
+.order-button:hover {
+    background-color: #ff4d3d;
+}
+
+.carrousel {
+    position: absolute;
+    max-width: 600px;
+    margin-top: 50px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.carrousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrousel-item {
+    min-width: 100%; 
+    box-sizing: border-box;
+    text-align: center; 
+}
+.carrousel-item img {
+    width: 100%; 
+    border-radius: 15px; 
+}
+
+.carrousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    z-index: 10; 
+}
+
+.carrousel-button.prev {
+    left: 10px; 
+}
+
+.carrousel-button.next {
+    right: 10px; 
+}
+
+.carrousel h2 {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.carrousel-button img {
+    height: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.carrousel-button:hover img {
+    opacity: 0.7;
+}
+
+/******************** HEADER FOOTER ********************/
+
+/********** HEADER **********/
+
+header {
+    background-color: #FF6F61;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 10px 20px;
+}
+
+header img {
+    height: 70px;
+    width: auto;
+}
+
+.titre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 15 auto;
+}
+
+.pan {
+    font-family: 'Praise', cursive;
+    font-weight: 400;
+    font-size: clamp(36px, 8vw, 72px); 
+    margin-right: 20px;
+    color: #fff;
+}
+
+.toplate {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(24px, 6vw, 48px); 
+    color: #fff;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    max-width: 500px;
+    margin: 10px 0;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    outline: none;
+}
+
+.search-bar button {
+    position: absolute;
+    background: none;
+    right: 10px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #000;
+}
+
+.nav-item {
+  display: flex;
+}
+
+.cart {
+  margin-right: 30px
+}
+.cart img {
+    height: 40px;
+}
+
+.cart a {
+    display: inline-block;
+}
+
+.btn-connexion {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+}
+
+.btn-connexion:hover {
+    background-color: #f7c8c8;
+}
+
+.btn-connexion img {
+    height: 15px;
+    margin-left: 10px;
+}
+
+.connexion a {
+    display: inline-block;
+    cursor: default;
+    text-decoration: none;
+}
+
+.profil img {
+    height: 50px;
+    margin-left: 10px;
+}
+
+.profil a {
+    display: inline-block;
+}
+
+/********** FOOTER **********/
+
+footer {
+    background-color: #FF6F61;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.footer-social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer-social-links li {
+    margin: 0 10px;
+}
+
+.footer-social-links img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-mention {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.footer-mention li {
+    margin: 0 60px;
+}
+.footer-mention a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+    
+}
+
+/***** RESPONSIVE *****/
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titre {
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+
+    .btn-connexion {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .cart, .profil {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        height: 50px;
+    }
+
+    .pan {
+        font-size: clamp(20px, 6vw, 36px);
+    }
+
+    .toplate {
+        font-size: clamp(16px, 4vw, 28px);
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .btn-connexion {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .cart img, .profil img {
+        height: 30px;
+    }
+} 
