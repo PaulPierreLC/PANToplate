@@ -2,26 +2,33 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Praise&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/********** Mention Légale **********/
+
+/***** MAIN *****/
+.mention-legale-main {
+    margin-left: 20px;
 }
 
-html, body {
-    height: 100%;
+.mention-legale-main p{
+    font-family: 'Poppins', sans-serif;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+.mention-legale-main h2{
+    font-family: 'Poppins', sans-serif;
 }
 
+.mention-legale-main h3{
+    font-family: 'Poppins', sans-serif;
+}
+
+.mention-legale-main li{
+    font-family: 'Poppins', sans-serif;
+}
 /********** Acceuil **********/
 
 /***** MAIN *****/
 
-main {
+.accueil-main {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -33,7 +40,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-image: url(/assets/images/Accueil/fond.png);
+    background-image: url(/PANToplate/assets/images/Accueil/fond.png);
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -49,7 +56,7 @@ main {
 .order-button {
     display: inline-block;
     background-color: #FF6F61;
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Poppins', sans-serif;
     color: white;
     font-size: 24px;
     padding: 15px 30px;
