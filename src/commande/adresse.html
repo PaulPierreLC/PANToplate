@@ -5,10 +5,10 @@
         <link rel="stylesheet" href="/assets/styles/style.css">
         <link rel="stylesheet" href="/assets/styles/custom.css">
         <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <title>PANTotplate - Restauration</title>
     </head>
-    <body>
-        
-        <header>
+    <body id="adresse">
+        <header class="py-1 fixed-top">
             <img src="/assets/images/Header et Footer/Logo II.png">
             <div class="titre">
                 <h1 class="pan">Pan </h1>
@@ -21,40 +21,45 @@
             <div class="nav-item">
                 <div class="cart">
                     <a href="#">
-                        <img src="/assets/images/Header et Footer/shopping-cart.png">
+                    <img src="/assets/images/Header et Footer/shopping-cart.png">
                     </a>
                 </div>
                 <div class="connexion">
                     <a href="#">
-                        <button class="btn-connexion">Connexion
-                        <img src="/assets/images/Header et Footer/log-out.png">
-                        </button>
+                    <button class="btn-connexion">Connexion
+                    <img src="/assets/images/Header et Footer/log-out.png">
+                    </button>
                     </a>    
                 </div>
             </div>
             <div class="profil">
-                <a href="#">
-                    <img src="/assets/images/Header et Footer/utilisateur.png">
-                </a>
+            <a href="#">
+            <img src="/assets/images/Header et Footer/utilisateur.png">
+            </a>
             </div>
         </header>
         <main>
             <div class="background"></div>
-            <div class="adresse">
-                <div class="slogan_livre">
-                    <a>Faites-vous Livrer</a><br><a>Maintenant!</a>
-                </div>
-                <div class="recherche">
-                    <input class="text_entry" type="text" placeholder="Adresse">
-                    <select class="hour_selection" id="heure">
-                        <script type="text/javascript" src="/assets/scripts/commande.js"></script>
-                    </select>
+            <div class="container-fluid full-screen d-flex justify-content-center align-items-center">
+                <div class="text-center p-5 rounded-5 bg_text w-50">
+                    <h1 class="fs-1">Faites vous livrer</h1>
+                    <p>Maintenant!</p>
+                    <form class="d-flex mt-5" role="search">
+                        <input class="form-control me-2 w-50" type="search" placeholder="Adresse" aria-label="Search">
+                        <div class="dropdown me-2 w-25">
+                            <button id="btnTime" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Heure
+                            </button>
+                            <ul id="timeDropdown" class="dropdown-menu dropdown-menu-scroll w-25" aria-labelledby="dropdownMenuButton">
+                                <script src="/assets/scripts/commande.js"></script>
+                            </ul>
+                        </div>
+                        <button class="btn btn-success" type="submit">Search</button>
                     </form>
-                    <input class="button" type="submit" value="GO!">
                 </div>
             </div>
         </main>
-        <footer>
+        <footer class="py-2 fixed-bottom">
             <div class="footer-content">
                 <ul class="footer-social-links">
                     <li><a href="#"> <img src="/assets/images/Header et Footer/Instagram.png"> </a></li>
