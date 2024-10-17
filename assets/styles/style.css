@@ -33,6 +33,17 @@
     font-family: 'Poppins', sans-serif;
     margin-left: 10px;
 }
+
+.content-container {
+    background: #f8f9fa;
+    opacity: 0,1; 
+    margin: 2rem auto; 
+    padding: 2rem;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 1000px;
+    color: black; 
+  }
 /********** Acceuil **********/
 
 /***** MAIN *****/
