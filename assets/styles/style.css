@@ -161,8 +161,12 @@
     overflow-y: auto;  /* Enable vertical scrolling */
 }
 
-#adresse .bg_text {
+#adresse .bg_transparent {
     background-color: rgba(255, 200, 200, 0.6);
+}
+
+#adresse .big_text {
+    font-size: xxx-large;
 }
 
 /******************** HEADER FOOTER ********************/
