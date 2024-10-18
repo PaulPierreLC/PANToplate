@@ -1,0 +1,2 @@
+# Ignorer le ficher .map qui peut être générer par l'extension Live Sass Compiler
+/assets/styles/*.map
