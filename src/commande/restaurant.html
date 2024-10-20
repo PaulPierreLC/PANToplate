@@ -39,10 +39,72 @@
             </a>
             </div>
         </header>
-        <main class="container my-5">
+        <main class="container-fluid m-5">
             <div class="d-flex">
-                <div class="w-25 border me-4">fsdf</div>
-                <div class="w-75 border">
+                <div class="w-20 border me-5">
+                    <div class="container mt-5">
+                        <!-- Dropdown 1 -->
+                        <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filter 1
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Option 1</a></li>
+                            <li><a class="dropdown-item" href="#">Option 2</a></li>
+                            <li><a class="dropdown-item" href="#">Option 3</a></li>
+                        </ul>
+                        </div>
+                    
+                        <!-- Dropdown 2 -->
+                        <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filter 2
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item" href="#">Option 1</a></li>
+                            <li><a class="dropdown-item" href="#">Option 2</a></li>
+                            <li><a class="dropdown-item" href="#">Option 3</a></li>
+                        </ul>
+                        </div>
+                    
+                        <!-- Dropdown 3 -->
+                        <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filter 3
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                            <li><a class="dropdown-item" href="#">Option 1</a></li>
+                            <li><a class="dropdown-item" href="#">Option 2</a></li>
+                            <li><a class="dropdown-item" href="#">Option 3</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                    <script>
+                        // JavaScript to close other dropdowns when one is opened
+                        document.addEventListener('click', function (event) {
+                        if (!event.target.matches('.dropdown-toggle')) {
+                            return;
+                        }
+                        
+                        // Close all open dropdowns
+                        document.querySelectorAll('.dropdown-menu.show').forEach(function (dropdown) {
+                            if (!dropdown.contains(event.target)) {
+                            bootstrap.Dropdown.getInstance(dropdown).hide();
+                            }
+                        });
+                        });
+                    
+                        // Automatically close when clicked outside any dropdown
+                        window.addEventListener('click', function(event) {
+                        if (!event.target.matches('.dropdown-toggle')) {
+                            document.querySelectorAll('.dropdown-menu.show').forEach(function (dropdown) {
+                            bootstrap.Dropdown.getInstance(dropdown).hide();
+                            });
+                        }
+                        });
+                    </script>
+                </div>
+                <div class="w-70 border">
                     <div class="border mb-3">
                         <p class="h2 ms-3">Restaurants proches</p>
                         <div class="d-flex flex-wrap text-center">
@@ -72,6 +134,7 @@
                             <div class="w-23 border m-2">8</div>
                         </div>
                     </div>  
+                </div>
         </main>
         <footer class="py-2">
             <div class="footer-content">
