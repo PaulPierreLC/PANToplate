@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/PANToplate/assets/styles/custom.css">
+    <link rel="stylesheet" href="/PANToplate/assets/styles/style.css">
+    <link rel="stylesheet" href="/PANToplate/assets/styles/parametre.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+  <body>
+    <header class="py-1">
+      <img src="/PANToplate/assets/images/Header et Footer/Logo II.png">
+  <div class="titre">
+      <h1 class="pan">Pan </h1>
+      <h1 class="toplate">to plate</h1>
+  </div>
+  <div class="search-bar">
+    <button>X</button>
+    <input type="text" placeholder="Recherchez une ville...">
+  </div>
+  <div class="nav-item">
+    <div class="cart">
+      <a href="#">
+        <img src="/PANToplate/assets/images/Header et Footer/shopping-cart.png">
+      </a>
+    </div>
+    <div class="connexion">
+      <a href="#">
+      <button class="btn-connexion">Connexion
+          <img src="/PANToplate/assets/images/Header et Footer/log-out.png">
+        </button>
+      </a>    
+    </div>
+</div>
+  <div class="profil">
+    <a href="#">
+    <img src="/PANToplate/assets/images/Header et Footer/utilisateur.png">
+    </a>
+  </div>
+</header>
+    <div class="row col-12">
+      <div class="zone_de_texte d-flex flex-column min-vh-100 py-5 col-2">
+        <button class="w-100 rounded-4 pt-2 mt-4"><a href="#Account"><p>Votre Compte</a></p></button>
+        <br>
+        <button class="w-100 rounded-4 pt-2 mt-4"><a href="#E-mail"><p>Mon Mail</p></a></button>
+        <br>
+        <button class="w-100 rounded-4 pt-2 mt-4"><a href="#Notification"><p>Notification</p></a></button>
+        <br>
+        <button class="w-100 rounded-4 pt-2 mt-4"><a href="#Preference"><p>Vos Préférences</p></a></button>
+        <br>
+        <button class="w-100 rounded-4 pt-2 mt-4"><a href="#Historique"><p>Historique d'Achat</p></a></button>
+      </div>
+
+        <div class="parameter_zone col-8 offset-3 py-3 px-3 mt-4 h-75">
+          <section id="Account"></section>
+          <h1>Votre Compte</h1>
+          <img src="/PANToplate/assets/images/parametre/utilisateur.png">
+          <button class="w-25 rounded-4 pt-2"><p>Supprimer ma photo</p></button>
+          <button class="w-25 rounded-4 pt-2 "><p>Modifier</p></button>
+          <div class="info">
+            <div class="d-flex">
+              <div class="me-5 mb-3">
+                <p>Nom :</p>
+                <input class="input-group-text border border-black" type="text" value="Dupont" disabled>
+              </div>
+              <div class="mb-3">
+                <p>Prenom :</p>
+                <input class="input-group-text border border-black" value="Jean" disabled>
+              </div>
+            </div>
+            <div class="mb-3">
+              <p>Date de Naissance :</p>
+              <input class="input-group-text border border-black" value="19/12/1999" disabled>
+            </div>
+            <div class="d-flex">
+              <div class="me-5">
+                <p>Adresse :</p>
+                <input class="input-group-text border border-black" value="24 rue thibault jolive" disabled>
+              </div>
+              <div class="mb-3">
+                <p>Ville :</p>
+                <input class="input-group-text border border-black" value="Lannion" disabled>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="me-5 mb-3">
+                <p>Complément Adresse :</p>
+                <input class="input-group-text border border-black" value="Batiment B" disabled>
+              </div>
+              <div class="mb-3">
+                <p>Code Postal :</p>
+                <input class="input-group-text border border-black" value="22000" disabled>
+              </div>
+            </div>
+            <div class="mb-3">
+              <p>Téléphone :</p>
+              <input class="input-group-text border border-black" value="06.72.72.72.72" disabled>
+            </div>
+            <button id="edit-button">Modifier</button>
+            <button id="save-button">Enregistrer</button>
+            <script src="/PANToplate/assets/scripts/js-parametre/parameter.js"></script>
+          </div>
+          <br><br><br>
+          <h1>Mot de passe</h1>
+          <br><br>
+          <div class="mb-3">
+            <p>Ancien Mot de Passe :</p>
+            <input class="input-group-text border border-black" value="">
+          </div>
+          <div class="mb-3">
+            <p>Nouveau Mot de Passe :</p>
+            <input class="input-group-text border border-black" value="">
+          </div>
+          <div class="mb-3">
+            <p>Confirmation Mot de Passe :</p>
+            <input class="input-group-text border border-black" value="">
+          </div>
+          <div class="small_line">
+            <p> Il doit contenir une majuscule, un chiffre et un caractère spécial. </p>
+          </div>
+          <br>
+          <button class="w-25 rounded-4 pt-2 "><p>Valider</p></button>
+          <br><br><br>
+          <div class="mb-3">
+            <section id="E-mail"></section>
+            <p><h1>E-mail</h1></p>
+            <input class="input-group-text border border-black" value="">
+            <br>
+            <button class="w-25 rounded-4 pt-2 "><p>Modifier</p></button>
+          </div>
+          <h3>Option</h3>
+          <br>
+            <p><input class="form-check-input me-2 " role="button" type="checkbox"> Recevoir des nouvelles et des e-mails de mise à jour.</p>
+            <p><input class="form-check-input me-2 " role="button" type="checkbox"> Recevoir un e-mail de résumé d'activité.</p>
+            <p><input class="form-check-input me-2 " role="button" type="checkbox"> Recevoir un e-mail à chaque achat.</p>
+            <br><br><br>
+          <section id="Notification"></section>
+          <h1>Notification</h1>
+          <br><br>
+          <p><input class="form-check-input me-2 " role="button" type="checkbox"> Notification par E-mail</p>
+          <p><input class="form-check-input me-2 " role="button" type="checkbox"> Notification par portable</p>
+          <br><br><br>
+          <h1>Achat</h1>
+          <br><br>
+            <section id="Preference"></section>
+            <p>Choisissez votre moyen de paiement :</p>
+            <br>
+            <select class="p-1 fs-5">
+              <option value="carte">Carte de crédit</option>
+              <option value="paypal">PayPal</option>
+              <option value="virement">Virement bancaire</option>
+              <option value="cheque">Chèque</option>
+            </select>
+          <br><br><br>
+          <section id="Historique"></section>
+          <h1>Historique d'Achat</h1>
+          <br>
+          <table class="table table-bordered table-hover">
+            <thread>
+              <tr>
+                <th>Date</th>
+                <th>Libellé</th>
+                <th>Montant</th>
+              </tr>
+            </thread>
+            <tbody>
+              <tr>
+                <td>18/08/24</td>
+                <td>Restaurant Bella Nostra</td>
+                <td>32.40 €</td>
+              </tr>
+              <tr>
+                <td>02/09/24</td>
+                <td>Pizzaria Michel Durant</td>
+                <td>11.50 €</td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+    </div>
+      <footer class="py-2 fixed-bottom">
+        <div class="footer-content">
+            <ul class="footer-social-links">
+                <li><a href="#"> <img src="/PANToplate/assets/images/Header et Footer/Instagram.png"> </a></li>
+                <li><a href="#"> <img src="/PANToplate/assets/images/Header et Footer/Facebook.png"> </a></li>
+                <li><a href="#"> <img src="/PANToplate/assets/images/Header et Footer/Twitter.png"> </a></li>
+                
+            </ul>
+            <ul class="footer-mention">
+                <li><a href="#">Mention légal</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">© Pan to Plate FRANCE 2024 Created by NAPT</a></li>
+            </ul>
+        </div>
+      </footer>
+  </body>
+</html>
