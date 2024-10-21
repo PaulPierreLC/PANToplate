@@ -25,6 +25,40 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/***** Tableau de bord *****/
+
+.custom-navbar {
+    background-color: #FF6F61;
+}
+
+.nav-interface {
+    font-family: 'Poppins', sans-serif;
+}
+.nav-tb {
+    margin-left: 20px;
+    
+}
+
+.nav-bc {
+    background-color: rgba(99, 74, 74, 0.5);
+}
+
+.nav-rp {
+    margin-right: 20px;
+}
+
+/***** Gestion restaurant *****/
+
+.cont-resto {
+    background-color: #FF6F61;
+}
+
+.rounded-circle-custom {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%; 
+}
 /********** Politique de confidentialité **********/
 
 /***** MAIN *****/
