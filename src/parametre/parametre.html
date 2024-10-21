@@ -2,44 +2,57 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/PANToplate/assets/styles/custom.css">
-    <link rel="stylesheet" href="/PANToplate/assets/styles/style.css">
-    <link rel="stylesheet" href="/PANToplate/assets/styles/parametre.css">
+    <link rel="stylesheet" href="/assets/styles/custom.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  </head>
   <body>
-    <header class="py-1">
-      <img src="/PANToplate/assets/images/Header et Footer/Logo II.png">
+    <header class="py-1 text-white">
+      <img src="/assets/images/Header et Footer/Logo II.png">
   <div class="titre">
-      <h1 class="pan">Pan </h1>
-      <h1 class="toplate">to plate</h1>
+      <a href="/src/index.html">
+          <h1 class="title mb-0 me-auto text-white">
+              <span class="praise">Pan</span> <span class="poppins">to plate</span>
+          </h1>
+      </a>
   </div>
   <div class="search-bar">
-    <button>X</button>
-    <input type="text" placeholder="Recherchez une ville...">
+      <button>X</button>
+      <input type="text" placeholder="Recherchez une ville...">
   </div>
   <div class="nav-item">
-    <div class="cart">
       <a href="#">
-        <img src="/PANToplate/assets/images/Header et Footer/shopping-cart.png">
+          <i class="cart bi bi-cart3 h2 text-white"></i>
       </a>
-    </div>
-    <div class="connexion">
-      <a href="#">
-      <button class="btn-connexion">Connexion
-          <img src="/PANToplate/assets/images/Header et Footer/log-out.png">
-        </button>
-      </a>    
-    </div>
-</div>
-  <div class="profil">
-    <a href="#">
-    <img src="/PANToplate/assets/images/Header et Footer/utilisateur.png">
-    </a>
+      </div>
+      <div class="connexion">
+          <a href="#">
+              <button class="btn-connexion">Connexion
+                  <i class="bi bi-box-arrow-in-right"></i>
+              </button>
+          </a>    
+      </div>
   </div>
-</header>
+  <!-- Début des modifs du header -->
+  <div class="profil">
+      <div class="account-dropdown">
+          <i class="bi bi-person text-white h1"></i>
+          <div class="account-dropdown-content rounded-4">
+              <div class="text-center">
+                  <h3>Mon compte</h3>
+                  <button class="w-75 rounded-4 mt-4"><a href="#"><i class="bi bi-cart"></i> Mes Commandes</a></button>
+                  <button class="w-75 rounded-4 mt-4"><a href="#"><i class="bi bi-heart"></i> Favoris</a></button>
+                  <button class="w-75 rounded-4 mt-4"><a href="#"><i class="bi bi-gear"></i> Paramètre</a></button>
+                  <button class="w-75 rounded-4 mb-1 mt-5"><a href="#"><i class="bi bi-box-arrow-in-right"></i> Déconnexion</a></button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Fin des modifs du header -->
+  </header>
     <div class="row col-12">
-      <div class="zone_de_texte d-flex flex-column min-vh-100 py-5 col-2">
+      <div class="parameter_href d-flex flex-column min-vh-100 py-5 col-2 border-end border-black">
         <button class="w-100 rounded-4 pt-2 mt-4"><a href="#Account"><p>Votre Compte</a></p></button>
         <br>
         <button class="w-100 rounded-4 pt-2 mt-4"><a href="#E-mail"><p>Mon Mail</p></a></button>
@@ -51,10 +64,10 @@
         <button class="w-100 rounded-4 pt-2 mt-4"><a href="#Historique"><p>Historique d'Achat</p></a></button>
       </div>
 
-        <div class="parameter_zone col-8 offset-3 py-3 px-3 mt-4 h-75">
+        <div class="parameter_zone col-8 offset-3 py-3 px-3 mt-4 h-75 rounded-4 border border-black">
           <section id="Account"></section>
           <h1>Votre Compte</h1>
-          <img src="/PANToplate/assets/images/parametre/utilisateur.png">
+          <img src="/assets/images/parametre/utilisateur.png">
           <button class="w-25 rounded-4 pt-2"><p>Supprimer ma photo</p></button>
           <button class="w-25 rounded-4 pt-2 "><p>Modifier</p></button>
           <div class="info">
@@ -68,9 +81,19 @@
                 <input class="input-group-text border border-black" value="Jean" disabled>
               </div>
             </div>
-            <div class="mb-3">
-              <p>Date de Naissance :</p>
-              <input class="input-group-text border border-black" value="19/12/1999" disabled>
+            <div class="d-flex">
+              <div class="mb-3 me-5">
+                <p>Date de Naissance :</p>
+                <input class="input-group-text border border-black" value="19/12/1999" disabled>
+              </div>
+              <div class="mb-3">
+                <p>Genre:</p>
+                <select class="p-1 fs-5 rounded-4" disabled>
+                  <option value="Homme">Homme</option>
+                  <option value="Femme">Femme</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
             </div>
             <div class="d-flex">
               <div class="me-5">
@@ -98,7 +121,7 @@
             </div>
             <button id="edit-button">Modifier</button>
             <button id="save-button">Enregistrer</button>
-            <script src="/PANToplate/assets/scripts/js-parametre/parameter.js"></script>
+            <script src="/assets/scripts/js-parametre/parameter.js"></script>
           </div>
           <br><br><br>
           <h1>Mot de passe</h1>
@@ -115,7 +138,7 @@
             <p>Confirmation Mot de Passe :</p>
             <input class="input-group-text border border-black" value="">
           </div>
-          <div class="small_line">
+          <div class="parameter_small_line">
             <p> Il doit contenir une majuscule, un chiffre et un caractère spécial. </p>
           </div>
           <br>
@@ -178,21 +201,20 @@
           </table>  
         </div>
     </div>
-      <footer class="py-2 fixed-bottom">
-        <div class="footer-content">
-            <ul class="footer-social-links">
-                <li><a href="#"> <img src="/PANToplate/assets/images/Header et Footer/Instagram.png"> </a></li>
-                <li><a href="#"> <img src="/PANToplate/assets/images/Header et Footer/Facebook.png"> </a></li>
-                <li><a href="#"> <img src="/PANToplate/assets/images/Header et Footer/Twitter.png"> </a></li>
-                
-            </ul>
-            <ul class="footer-mention">
-                <li><a href="#">Mention légal</a></li>
-                <li><a href="#">Cookies</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">© Pan to Plate FRANCE 2024 Created by NAPT</a></li>
-            </ul>
-        </div>
-      </footer>
+    <footer class="py-2 fixed-bottom">
+      <div class="footer-content">
+          <ul class="footer-social-links list-inline">
+              <li class="list-inline-item bi-instagram h2"><a href="#">  </a></li>
+              <li class="list-inline-item bi bi-facebook h2"><a href="#"> </a></li>
+              <li class="list-inline-item bi bi-twitter h2"><a href="#"></a></li>   
+          </ul>
+          <ul class="footer-mention">
+              <li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="/src/politique de confidentialité/confidentialité.html">Politique de confidentialité</a></li>
+              <li><a href="#">© Pan to Plate FRANCE 2024 Created by NAPT</a></li>
+          </ul>
+      </div>
+    </footer>
   </body>
 </html>
