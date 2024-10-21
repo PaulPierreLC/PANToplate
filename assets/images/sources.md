@@ -1,3 +1,11 @@
+Logo : Fait sur Gimp.
+
+Icônes accueil, header, footer : Bootstrap icon.
+
+Fond accueil : Midjourney AI
+
+Images carrousel : Midjourney AI
+
 food_platter1: https://pixabay.com/photos/platter-food-starters-meal-feast-2009590/
 
 restaurant
