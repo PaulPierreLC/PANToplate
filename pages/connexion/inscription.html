@@ -40,24 +40,42 @@
     </header>
     <!--====================================================================================================================================-->
 
-    <div class="container ">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <form class="p-4 border rounded bg-light">
-                    <div class="form-group py-2">
-                        <input type="text" class="form-control" id="pseudonyme" placeholder="Entrez votre adresse-e-mail">
+    <div style="width: 100vw; height: 100vh; background-image: url('/assets/images/connexion/top-view-pasta-seafood-wooden-table.jpg'); background-size: 300vh; background-position: center;">
+        <div class="d-flex">
+          <div class="w-50 h-50"></div>
+          <div class="d-flex align-items-center justify-content-center" style="width: 50vw; height: 78vh;">
+            <div class="d-flex flex-column bg-white align-items-center justify-content-center rounded-4 h-75 w-75">
+                <div class="d-flex justify-content-between flex-column p-4 w-100 h-100">
+                    <div class="form-group py-1">
+                        <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse-e-mail">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group py-1">
+                        <input type="text" class="form-control" id="mailConfirmation" placeholder="Confirmez votre adresse-e-mail">
+                    </div>
+                    <div class="form-group py-1">
+                        <input type="text" class="form-control" id="pseudonyme" placeholder="Entrez votre Nom d'utilisateur">
+                    </div>
+                    <div class="form-group py-1">
                         <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
                     </div>
-                    <div class="d-flex flex-column justify-content-center ">
-                        <button type="button" class="btn btn w-auto">Connexion</button>
-                        <button type="button" class="btn btn-link btn-block">Pas de compte ? S'inscrire</button>
+                    <div class="form-group py-1">
+                        <input type="password" class="form-control" id="passwordConfirmation" placeholder="Confirmez votre mot de passe">
+                    <div class="d-flex justify-content-between w-100 py-3">
+                        <div class="form-group py-1 w-50">
+                            <input type="text" class="form-control" id="pseudonyme" placeholder="Date de naissance JJ/MM/AA *">
+                        </div>
+                        <div class="form-group py-1 w-50">
+                            <input type="text" class="form-control" id="genre" placeholder="HOMME/FEMME/AUTRE">
+                        </div>
                     </div>
-                </form>
+                    </div>
+                        <button type="button" class="btn  w-auto mb-2 border-black">S'inscrire !</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div> 
     </div>
+
 
     <!--====================================================================================================================================-->
 
