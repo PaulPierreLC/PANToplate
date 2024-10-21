@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/assets/styles/style.css">
     </head>
 
-    <body style="background-image: url('/assets/images/connexion/top-view-pasta-seafood-wooden-table.jpg'); background-size: 300vh; background-position: center;">
+    <body style="overflow: hidden;">
         <header class="py-1">
             <img src="/assets/images/Header et Footer/Logo II.png">
         <div class="titre">
@@ -42,42 +42,69 @@
         </div>
       </header>
     <!--====================================================================================================================================-->
-
-    <div style="width: 100vw; height: 100vh; background-image: url('/assets/images/connexion/top-view-pasta-seafood-wooden-table.jpg'); background-size: 300vh; background-position: center;">
-        <div class="d-flex">
-          <div class="w-50 h-50"></div>
-          <div class="d-flex align-items-center justify-content-center" style="width: 50vw; height: 78vh;">
-            <div class="d-flex flex-column bg-white align-items-center justify-content-center rounded-4 h-75 w-75">
-                <div class="d-flex justify-content-between flex-column p-4 w-100 h-100">
-                    <div class="form-group py-1">
-                        <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse-e-mail">
-                    </div>
-                    <div class="form-group py-1">
-                        <input type="text" class="form-control" id="mailConfirmation" placeholder="Confirmez votre adresse-e-mail">
-                    </div>
-                    <div class="form-group py-1">
-                        <input type="text" class="form-control" id="pseudonyme" placeholder="Entrez votre Nom d'utilisateur">
-                    </div>
-                    <div class="form-group py-1">
-                        <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
-                    </div>
-                    <div class="form-group py-1">
-                        <input type="password" class="form-control" id="passwordConfirmation" placeholder="Confirmez votre mot de passe">
-                    <div class="d-flex justify-content-around h-75 py-4">
-                        <div class="form-group py-1 w-50">
-                            <input type="text" class="form-control" id="pseudonyme" placeholder="Date de naissance JJ/MM/AA *">
-                        </div>
-                        <div class="form-group py-1 w-50">
-                            <input type="text" class="form-control" id="genre" placeholder="HOMME/FEMME/AUTRE">
-                        </div>
-                    </div>
-                    </div>
-                        <button type="button" class="btn  w-auto mb-2 border-black">S'inscrire !</button>
+    <main>
+        <div style="background-image: url('/assets/images/connexion/top-view-pasta-seafood-wooden-table.jpg'); background-size: 300vh; background-position: center; height: 100vh; width: 100vw; overflow: hidden;">
+            <div class="col">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col ">
+                        <div class="bg-light p-2 rounded-4" style="margin-top: 25vh; margin-right: 5vw;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse-e-mail">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="text" class="form-control" id="mailConfirmation" placeholder="Confirmez votre adresse-e-mail">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group py-1">
+                                        <input type="text" class="form-control" id="pseudonyme" placeholder="Entrez votre Nom d'utilisateur">
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="password" class="form-control" id="passwordConfirmation" placeholder="Confirmez votre mot de passe">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="text" class="form-control" id="pseudonyme" placeholder="Date de naissance JJ/MM/AA *">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="dropdown py-1">
+                                            <button class="btn border dropdown-toggle bg-light w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Sélectionnez votre genre *
+                                            </button>
+                                            <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#">Homme</a></li>
+                                                <li><a class="dropdown-item" href="#">Femme</a></li>
+                                                <li><a class="dropdown-item" href="#">Autre</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>
-        </div> 
-    </div>
+        </div>
+    </main>
 
     <!--====================================================================================================================================-->
 
