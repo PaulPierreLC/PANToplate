@@ -62,7 +62,7 @@
   <script>
     // Function to filter the cards
     function filterCards(category) {
-      const cards = document.querySelectorAll('.col'); // Select all card containers
+      const cards = document.querySelectorAll('.col').getElementById(''); // Select all card containers
 
       cards.forEach(card => {
         const cardCategory = card.getAttribute('data-category'); // Get the card's category
