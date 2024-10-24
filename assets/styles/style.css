@@ -53,6 +53,11 @@
     background-color: #FF6F61;
 }
 
+.scrollable-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
 .rounded-circle-custom {
     width: 80px;
     height: 80px;
