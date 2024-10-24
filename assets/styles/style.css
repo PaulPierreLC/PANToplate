@@ -64,6 +64,12 @@
     object-fit: cover;
     border-radius: 50%; 
 }
+
+@media (min-width: 1024px) and (max-width: 2560px) {
+    .dynamic-padding {
+        padding-bottom: 100px;
+    }
+}
 /********** Politique de confidentialité **********/
 
 /***** MAIN *****/
