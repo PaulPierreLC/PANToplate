@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Pan to Plate</title>
-  <link rel="stylesheet" href="styles.css">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/styles/custom.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
 </head>
 <body>
-  <header class="py-1">
+  <header class="py-1 text-white">
     <img src="/assets/images/Header et Footer/Logo II.png">
 <div class="titre">
   <a href="/src/index.html">
@@ -19,36 +24,63 @@
   <input type="text" placeholder="Recherchez une ville...">
 </div>
 <div class="nav-item">
-  <div class="cart">
-    <a href="#">
-      <img src="/assets/images/Header et Footer/shopping-cart.png">
-    </a>
+  <a href="#">
+  <i class="cart bi bi-cart3 h2 text-white"></i>
+  </a>
   </div>
   <div class="connexion">
     <a href="#">
     <button class="btn-connexion">Connexion
-        <img src="/assets/images/Header et Footer/log-out.png">
+      <i class="bi bi-box-arrow-in-right"></i>
       </button>
     </a>    
   </div>
 </div>
 <div class="profil">
   <a href="#">
-  <img src="/assets/images/Header et Footer/utilisateur.png">
+    <i class="bi bi-person text-white h1"></i>
   </a>
 </div>
 </header>
-
-  <main>
-  </main>
+    
+<main class="accueil-main">
+  <div class="banner d-flex flex-column justify-content-center align-items-center">
+      <div class="button-wrapper mb-4">
+          <a href="/src/commande/adresse.html">
+              <button class="order-button">Commandez maintenant !</button>
+          </a>
+      </div>
+      <div class="carrousel">
+          <div class="carrousel-wrapper">
+              <div class="carrousel-item">
+                  <img src="/assets/images/Accueil/burger.png" alt="Burger">
+                  <h2>Chez Tony</h2>
+              </div>
+              <div class="carrousel-item">
+                  <img src="/assets/images/Accueil/pizza.png" alt="Pizza">
+                  <h2>Little Italy</h2>
+              </div>
+              <div class="carrousel-item">
+                  <img src="/assets/images/Accueil/sushi.png" alt="Sushi">
+                  <h2>Sengoku Food</h2>
+              </div>
+          </div>
+          <button class="carrousel-button prev" onclick="moveSlide(-1)">
+              <i class="bi bi-chevron-left text-white"></i>
+          </button>
+          <button class="carrousel-button next" onclick="moveSlide(1)">
+              <i class="bi bi-chevron-right text-white"></i>
+          </button>
+      </div>
+  </div>
+</main>
 
   <footer class="py-2 fixed-bottom">
     <div class="footer-content">
-        <ul class="footer-social-links">
-            <li><a href="#"> <img src="/assets/images/Header et Footer/Instagram.png"> </a></li>
-            <li><a href="#"> <img src="/assets/images/Header et Footer/Facebook.png"> </a></li>
-            <li><a href="#"> <img src="/assets/images/Header et Footer/Twitter.png"> </a></li>
-            
+        <ul class="footer-social-links list-inline">
+            <li class="list-inline-item bi-instagram h2"><a href="#">  </a></li>
+            <li class="list-inline-item bi bi-facebook h2"><a href="#"> </a></li>
+            <li class="list-inline-item bi bi-twitter h2"><a href="#"></a></li>   
         </ul>
         <ul class="footer-mention">
             <li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
@@ -58,6 +90,7 @@
         </ul>
     </div>
   </footer>
-
-  </body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/scripts/js-accueil/script.js"></script>
+</body>
 </html>
