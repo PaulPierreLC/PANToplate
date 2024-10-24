@@ -193,10 +193,12 @@
     scroll-behavior: smooth;
     white-space: nowrap;
 }
+
 #restaurant .item {
     width: 120px;
     height: 60px;
 }
+
 #restaurant .scroll-btn {
     background-color: #007bff;
     color: white;
@@ -204,8 +206,15 @@
     padding: 10px;
     cursor: pointer;
 }
+
 #restaurant .scroll-btn:disabled {
     opacity: 0.5;
+}
+
+/********** Plat **********/
+
+#plat .object_fit {
+    object-fit: cover;
 }
 
 /******************** HEADER FOOTER ********************/
