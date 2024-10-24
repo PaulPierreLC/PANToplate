@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
@@ -29,7 +29,7 @@
   </a>
   </div>
   <div class="connexion">
-    <a href="#">
+    <a href="../connexion/connexion.html">
     <button class="btn-connexion">Connexion
       <i class="bi bi-box-arrow-in-right"></i>
       </button>
@@ -43,12 +43,57 @@
 </div>
 </header>
     
-<main>
-  <div class="row">
-    <div class="col">
-        <div class>
-            
+<main style="overflow: hidden;">
+  <div class="col">
+    <div class="row d-flex justify-content-center">
+      <div class="bg-light p-2 rounded-4 w-50 border" style="margin-top: 2.5%;">
+        <div class="col d-flex justify-content-center py-2">
+          <div class="row py-2">
+            <h2 class="text-decoration-underline">Contactez nous !</h2>
+          </div>
         </div>
+        <div class="col p-2">
+          <div class="row d-flex px-2">
+            <h5>Prénom*</h5>
+            <input type="text">
+          </div>
+        </div>
+        <div class="col p-2">
+          <div class="row d-flex px-2">
+            <h5>Nom*</h5>
+            <input type="text">
+          </div>
+        </div>
+        <div class="col p-2">
+          <div class="row d-flex px-2">
+            <h5>Société</h5>
+            <input type="text">
+          </div>
+        </div>
+        <div class="col p-2">
+          <div class="row d-flex px-2">
+            <h5>Email*</h5>
+            <input type="text">
+          </div>
+        </div>
+        <div class="col p-2">
+          <div class="row d-flex px-2">
+            <h5>Message*</h5>
+            <p style="font-size: 10px;">(Minimum 50 caractères.)</p>
+            <textarea name="Message"></textarea>
+          </div>
+        </div>
+        <div class="col px-2">
+          <div class="row">
+            <p style="font-size: 10px;">* Champs obligatoires</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row p-3">
+            <button type="button" class="btn mb-2 border-black">Envoyer</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
