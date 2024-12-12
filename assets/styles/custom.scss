@@ -3,3 +3,15 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Then add additional custom code here
+
+// Generate h-1 and w-1, w-2, ..., to w-100/h-100
+@for $i from 1 to 100 {
+    @if not ($i == 25 or $i == 50 or $i == 75) {
+        .w-#{$i} {
+            width: 0% + $i !important;
+        }
+        .h-#{$i} {
+            width: 0% + $i !important;
+        }
+    }
+}
