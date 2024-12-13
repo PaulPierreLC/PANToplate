@@ -137,6 +137,72 @@
     font-weight: 400;
 }
 
+/******************* PARAMETRE *********************/
+
+
+.parameter_href {
+    position: absolute;
+    left: 0;
+    background-color: #FF6F61;
+}
+
+.parameter_zone{
+    position: absolute;
+    border-radius: 5px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    background-color: #FF6F61;
+}
+
+.parameter_zone img {
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+.parameter_small_line {
+    font-size: 10px;
+}
+
+/* Lien */
+
+a:link {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+a:visited {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+/******************* COMPTE HEADER ************************/
+
+.account-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.account-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FF6F61;
+    min-width: 300px;
+    z-index: 1;
+}
+
+.account-dropdown-content a {
+    color: black;
+    padding: 12px ;
+    text-decoration: none;
+    display: block;
+}
+
+.account-dropdown:hover .account-dropdown-content {
+    display: block;
+    right: 0px;
+}
+
 
 /******************** Commande ********************/
 
