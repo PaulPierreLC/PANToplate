@@ -4,108 +4,96 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/assets/styles/style.css">
         <link rel="stylesheet" href="/assets/styles/custom.css">
-        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <title>PANToplate - Restauration</title>
         <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
     </head>
     <body id="restaurant">
-        <header class="py-1 text-white">
+        <header class="py-1">
             <img src="/assets/images/Header et Footer/Logo II.png">
             <div class="titre">
-                <a href="/src/index.html">
-                <h1 class="title mb-0 me-auto text-white">
-                    <span class="praise">Pan</span> <span class="poppins">to plate</span>
-                </h1>
-                </a>
+                <h1 class="pan">Pan </h1>
+                <h1 class="toplate">to plate</h1>
             </div>
             <div class="search-bar">
                 <button>X</button>
                 <input type="text" placeholder="Recherchez une ville...">
             </div>
             <div class="nav-item">
-                <a href="#">
-                    <i class="cart bi bi-cart3 h2 text-white"></i>
-                </a>
-            </div>
-            <div class="connexion">
-                <a href="#">
+                <div class="cart">
+                    <a href="#">
+                    <img src="/assets/images/Header et Footer/shopping-cart.png">
+                    </a>
+                </div>
+                <div class="connexion">
+                    <a href="#">
                     <button class="btn-connexion">Connexion
-                        <i class="bi bi-box-arrow-in-right"></i>
+                    <img src="/assets/images/Header et Footer/log-out.png">
                     </button>
-                </a>    
+                    </a>    
+                </div>
             </div>
             <div class="profil">
-                <a href="#">
-                    <i class="bi bi-person text-white h1"></i>
-                </a>
+            <a href="#">
+            <img src="/assets/images/Header et Footer/utilisateur.png">
+            </a>
             </div>
         </header>
-        <main class="restaurant container-fluid">
-            <div class="col m-4">
-                <div class="row mb-4 border bg-light shadow">
-                    <div class="row">
-                        <div class="container">
-                            <div class="m-3 d-flex align-items-center justify-content-between">
-                                <button class="scroll-btn" id="scrollLeft">&lt;</button>
-                                <div class="scroll-container" id="scrollContainer">
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineFrancaise" id="francaiseButton">Française</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineItalienne" id="italienneButton">Italienne</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineJaponaise" id="japonaiseButton">Japonaise</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineChinoise" id="chinoiseButton">Chinoise</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineLibanaise" id="libanaiseButton">Libanaise</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineIndienne" id="indienneButton">Indienne</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineThailandaise" id="thailandaiseButton">Thaïlandaise</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineMexicaine" id="mexicaineButton">Mexicaine</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineVietnamienne" id="vietnamienneButton">Vietnamienne</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineAmericaine" id="americaineButton">Américaine</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineEspagnole" id="espagnoleButton">Espagnole</button>
-                                    <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="cuisineGrecque" id="grecqueButton">Grecque</button>
-                                </div>
-                                <button class="scroll-btn" id="scrollRight">&gt;</button>
-                                <script src="/assets/scripts/commande/scrollingBar.js"></script>
+        <main class="container-fluid m-5">
+            <div class="d-flex">
+                <div class="w-20 border me-5 bg-light">
+                    <div class="m-3">
+                        <p class="h4">Régime</p>
+                        <div class="ms-3 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">Végétarien</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">Vegan</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">Halal</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">Casher</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-cols-3">
-                        <div class="col mb-3">
-                            <div class="d-flex justify-content-center flex-wrap">
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="prixUn" id="prixUnButton">€</button>
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="prixDeux" id="prixDeuxButton">€€</button>
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="prixTrois" id="prixTroisButton">€€€</button>
+                        <p class="h4">Prix</p>
+                        <div class="ms-3 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">€</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">€€</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">€€€</label>
                             </div>
                         </div>
-                        <div class="col mb-3">
-                            <div class="dropdown me-2">
-                                <button id="btnTime" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Heure
-                                </button>
-                                <ul id="timeDropdown" class="dropdown-menu dropdown-menu-scroll w-100" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                        <p class="h4">Michelin</p>
+                        <div class="ms-3 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">❋</label>
                             </div>
-                        </div>
-                        <div class="col mb-3">
-                            <div class="d-flex justify-content-center flex-wrap">
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="vegetarien" id="vegetarienButton">Végétarien</button>
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="vegan" id="veganButton">Vegan</button>
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="halal" id="halalButton">Halal</button>
-                                <button type="button" class="btn btn-outline-secondary filter-btn item m-1 btn_text" data-category="casher" id="casherButton">Casher</button>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">❋</label>
                             </div>
-                        </div>
-                    </div>
-                    <script src="/assets/scripts/commande/restaurant.js"></script>
-                </div>
-                <div id="restaurantsContainer" class="row border bg-light shadow row-cols-2 row-cols-lg-3 row-cols-xl-4">
-                    <div class="col my-2">
-                        <div class="card" data-category="cuisineFrancaise">
-                            <img src="/assets/images/restaurant/001.jpg" class="card-img-top object_fit" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Le Bon Resto</h5>
-                                <p class="card-text">Française</p>
-                                <p class="card-text"><small class="text-body-secondary">€-€€ / 4.5★</small></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">❋❋</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">❋❋❋</label>
                             </div>
                         </div>
                         <p class="h4">Cuisine</p>
@@ -133,35 +121,22 @@
                     <div class="border mb-3">
                         <p class="h2 ms-3">Restaurants proches</p>
                         <div class="d-flex flex-wrap text-center" id="restaurant_liste">
-                            <!-- <div class="w-48 border m-2 rounded">
-                                <div class="row">
-                                    <img src="/assets/images/restaurant/001.jpg" class="img-fluid col">
-                                    <div class="w-100 col">
-                                        <div class="card-body">
-                                            <h5 class="card-title m-4">Gourmet Haven</h5>
-                                            <p class="card-text">Experience fine dining with a touch of elegance at Gourmet Haven. Enjoy a curated menu of international flavors and locally sourced ingredients.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-48 border m-2">2</div>
-                            <div class="w-48 border m-2">3</div>
-                            <div class="w-48 border m-2">4</div> -->
+                            <!-- Génération des cartes de restaurants via le script -->
                         </div>
                     </div>
                 </div>
         </main>
-        <footer class="py-2 fixed-bottom">
+        <footer class="py-2">
             <div class="footer-content">
-                <ul class="footer-social-links list-inline">
-                    <li class="list-inline-item bi-instagram h2"><a href="#">  </a></li>
-                    <li class="list-inline-item bi bi-facebook h2"><a href="#"> </a></li>
-                    <li class="list-inline-item bi bi-twitter h2"><a href="#"></a></li>   
+                <ul class="footer-social-links">
+                    <li><a href="#"> <img src="/assets/images/Header et Footer/Instagram.png"> </a></li>
+                    <li><a href="#"> <img src="/assets/images/Header et Footer/Facebook.png"> </a></li>
+                    <li><a href="#"> <img src="/assets/images/Header et Footer/Twitter.png"> </a></li>
                 </ul>
                 <ul class="footer-mention">
-                    <li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
+                    <li><a href="#">Mention légal</a></li>
                     <li><a href="#">Cookies</a></li>
-                    <li><a href="/src/politique de confidentialité/confidentialité.html">Politique de confidentialité</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
                     <li><a href="#">© Pan to Plate FRANCE 2024 Created by NAPT</a></li>
                 </ul>
             </div>
