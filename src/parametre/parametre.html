@@ -67,57 +67,80 @@
         <div class="parameter_zone col-8 offset-3 py-3 px-3 mt-4 h-75 rounded-4 border border-black">
           <section id="Account"></section>
           <h1>Votre Compte</h1>
-          <img src="/assets/images/parametre/utilisateur.png">
+          <img id="imgprofil" src="/assets/images/parametre/utilisateur.png">
           <button class="w-25 rounded-4 pt-2"><p>Supprimer ma photo</p></button>
           <button class="w-25 rounded-4 pt-2 "><p>Modifier</p></button>
           <div class="info">
             <div class="d-flex">
               <div class="me-5 mb-3">
                 <p>Nom :</p>
-                <input class="input-group-text border border-black" type="text" value="Dupont" disabled>
+                <input id="nom" class="input-group-text border border-black" type="text" value="" disabled>
               </div>
               <div class="mb-3">
                 <p>Prenom :</p>
-                <input class="input-group-text border border-black" value="Jean" disabled>
+                <input id="prenom" class="input-group-text border border-black" type="text" value="" disabled>
               </div>
             </div>
             <div class="d-flex">
               <div class="mb-3 me-5">
                 <p>Date de Naissance :</p>
-                <input class="input-group-text border border-black" value="19/12/1999" disabled>
+                <input id="birthDate" class="input-group-text border border-black" value="" disabled>
               </div>
               <div class="mb-3">
                 <p>Genre:</p>
-                <select class="p-1 fs-5 rounded-4" disabled>
+                <select id="genre" class="p-1 fs-5 rounded-4" disabled>
                   <option value="Homme">Homme</option>
                   <option value="Femme">Femme</option>
                   <option value="Autre">Autre</option>
                 </select>
               </div>
             </div>
+            <h1>Adresse Domicile</h1>
             <div class="d-flex">
               <div class="me-5">
-                <p>Adresse :</p>
-                <input class="input-group-text border border-black" value="24 rue thibault jolive" disabled>
+                <p>Adresse:</p>
+                <input id="numero" class="input-group-text border border-black" value="" disabled>
               </div>
               <div class="mb-3">
                 <p>Ville :</p>
-                <input class="input-group-text border border-black" value="Lannion" disabled>
+                <input id="nomVille" class="input-group-text border border-black" value="" disabled>
               </div>
             </div>
             <div class="d-flex">
               <div class="me-5 mb-3">
                 <p>Complément Adresse :</p>
-                <input class="input-group-text border border-black" value="Batiment B" disabled>
+                <input id="complement" class="input-group-text border border-black" value="" disabled>
               </div>
               <div class="mb-3">
                 <p>Code Postal :</p>
-                <input class="input-group-text border border-black" value="22000" disabled>
+                <input id="code_postal" class="input-group-text border border-black" value="" disabled>
               </div>
             </div>
+            <h1>Adresse Travail</h1>
+            <div class="d-flex">
+              <div class="me-5">
+                <p>Adresse:</p>
+                <input id="numero" class="input-group-text border border-black" value="" disabled>
+              </div>
+              <div class="mb-3">
+                <p>Ville :</p>
+                <input id="nomVille" class="input-group-text border border-black" value="" disabled>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="me-5 mb-3">
+                <p>Complément Adresse :</p>
+                <input id="complement" class="input-group-text border border-black" value="" disabled>
+              </div>
+              <div class="mb-3">
+                <p>Code Postal :</p>
+                <input id="code_postal" class="input-group-text border border-black" value="" disabled>
+              </div>
+            </div>
+            
             <div class="mb-3">
               <p>Téléphone :</p>
-              <input class="input-group-text border border-black" value="06.72.72.72.72" disabled>
+              <input id="tel_mobile" class="input-group-text border border-black" value="" disabled>
             </div>
             <button id="edit-button">Modifier</button>
             <button id="save-button">Enregistrer</button>
@@ -147,7 +170,7 @@
           <div class="mb-3">
             <section id="E-mail"></section>
             <p><h1>E-mail</h1></p>
-            <input class="input-group-text border border-black" value="">
+            <input id="mail" class="input-group-text border border-black" value="">
             <br>
             <button class="w-25 rounded-4 pt-2 "><p>Modifier</p></button>
           </div>
@@ -168,7 +191,7 @@
             <section id="Preference"></section>
             <p>Choisissez votre moyen de paiement :</p>
             <br>
-            <select class="p-1 fs-5">
+            <select id="paiement" class="p-1 fs-5">
               <option value="carte">Carte de crédit</option>
               <option value="paypal">PayPal</option>
               <option value="virement">Virement bancaire</option>
