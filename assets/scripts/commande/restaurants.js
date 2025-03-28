@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (xhr.status === 200) {
                 try {
                     const restaurants = JSON.parse(xhr.responseText);
-
                     restaurantListContainer.innerHTML = "";
 
                     restaurants.forEach((restaurant) => {
@@ -20,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const restaurantLink = document.createElement("a");
                         restaurantLink.href = `restaurant.html?id=${restaurant.id}`; // Link to the restaurant detail page
                         restaurantLink.classList.add("card-title-link"); // Optional class for styling
+                        restaurantLink.textContent = restaurant.nom; // Set the restaurant name as the link text
 
                         // Build the card HTML
                         restaurantCard.innerHTML = `
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <img src="/assets/images/restaurant/${restaurant.photo}" alt="${restaurant.nom}" class="img-fluid col">
                                 <div class="w-100 col">
                                     <div class="card-body">
-                                        <h5 class="card-title m-4">${restaurant.nom}</h5>
+                                        <h5 class="card-title m-4"></h5> <!-- This will be replaced with the restaurant link -->
                                         <p class="card-text">
                                             <strong>Téléphone:</strong> 
                                             <a href="tel:${restaurant.telephone}">${restaurant.telephone}</a>
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         `;
 
                         // Append the restaurant name as a clickable link
-                        restaurantCard.querySelector("h5").prepend(restaurantLink);
+                        restaurantCard.querySelector("h5").appendChild(restaurantLink);
 
                         // Append the card to the container
                         restaurantListContainer.appendChild(restaurantCard);

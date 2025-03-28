@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="stylesheet" href="/assets/styles/custom.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const restaurantId = urlParams.get("id");
+
+            if (restaurantId) {
+                // Fetch restaurant details
+                fetch(`http://localhost:8080/api/restaurants/${restaurantId}`)
+                    .then(response => response.json())
+                    .then(restaurant => {
+                        document.getElementById("restaurant-name").textContent = restaurant.nom;
+                        document.getElementById("restaurant-image").src = `/assets/images/restaurant/${restaurant.photo}`;
+                        document.getElementById("restaurant-capacite").textContent = `Capacité: ${restaurant.capacite} personnes`;
+                        document.getElementById("restaurant-telephone").textContent = `Téléphone: ${restaurant.telephone}`;
+                    })
+                    .catch(error => console.error("Error fetching restaurant details:", error));
+
+                    // Fetch all plats
+                    fetch(`http://localhost:8080/api/plats`)
+                        .then(response => response.json())
+                        .then(plats => {
+                            console.log("All Plats API Response:", plats); // Log all plats for debugging
+
+                            // Convert restaurantId to a number for comparison
+                            const restaurantIdNumber = parseInt(restaurantId);
+
+                            // Filter plats based on the restaurant ID
+                            const filteredPlats = plats.filter(plat => {
+                                console.log(`Filtering: plat.id_restaurant = ${plat.id_restaurant}, restaurantId = ${restaurantIdNumber}`);
+                                return plat.id_restaurant === restaurantIdNumber;
+                            });
+
+                            const platsContainer = document.getElementById("plats-list");
+                            platsContainer.innerHTML = "";
+
+                            if (filteredPlats.length === 0) {
+                                platsContainer.innerHTML = "<p>Aucun plat disponible pour ce restaurant.</p>";
+                            }
+
+                            filteredPlats.forEach(plat => {
+                                const platCard = document.createElement("div");
+                                platCard.classList.add("col-5", "m-3", "card");
+                                platCard.innerHTML = `
+                                    <div class="card-body">
+                                        <h5 class="card-title">${plat.nom}</h5>
+                                        <p class="card-text">${plat.prix}€ - ${plat.note}★</p>
+                                        <p class="card-text"><small class="text-body-secondary">${plat.description}</small></p>
+                                        <div class="d-grid gap-2 d-flex justify-content-end">
+                                            <button class="btn btn-outline-dark rounded-3" type="button">+</button>
+                                        </div>
+                                    </div>
+                                `;
+                                platsContainer.appendChild(platCard);
+                            });
+                        })
+                        .catch(error => console.error("Error fetching plats:", error));
+
+            }
+        });
+    </script>
+    <title>PANToplate - Restauration</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+</head>
+<body id="restaurant">
+    <header class="py-1 text-white">
+        <img src="/assets/images/Header et Footer/Logo II.png">
+        <div class="titre">
+            <a href="/src/index.html">
+                <h1 class="title mb-0 me-auto text-white">
+                    <span class="praise">Pan</span> <span class="poppins">to plate</span>
+                </h1>
+            </a>
+        </div>
+    </header>
+    <main class="plat container">
+        <div class="col my-5">
+            <div class="row mb-2 shadow">
+                <div class="col m-4">
+                    <img id="restaurant-image" src="" alt="" class="img-fluid w-100 rounded">
+                </div>
+                <div class="col-8 m-2">
+                    <div class="row">
+                        <p id="restaurant-name" class="h1 text-center"></p>
+                    </div>
+                    <div class="row" id="restaurant-capacite"></div>
+                    <div class="row" id="restaurant-telephone"></div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="row shadow">
+                        <div class="row">
+                            <p class="h2 m-3 fw-bold">Plats</p>
+                        </div>
+                        <div id="plats-list" class="row ms-5 my-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="py-2">
+        <div class="footer-content">
+            <ul class="footer-mention">
+                <li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="/src/politique de confidentialité/confidentialité.html">Politique de confidentialité</a></li>
+                <li><a href="#">© Pan to Plate FRANCE 2024 Created by NAPT</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
