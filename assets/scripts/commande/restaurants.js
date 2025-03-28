@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="w-100 col">
                                     <div class="card-body">
                                         <h5 class="card-title m-4">${restaurant.nom}</h5>
-                                        <p class="card-text">${restaurant.description}</p>
+                                        <p class="card-text">
+                                            <strong>Téléphone:</strong> 
+                                            <a href="tel:${restaurant.telephone}">${restaurant.telephone}</a>
+                                        </p>
+                                        <p class="card-text"><strong>Capacité:</strong> ${restaurant.capacite} personnes</p>
                                     </div>
                                 </div>
                             </div>
