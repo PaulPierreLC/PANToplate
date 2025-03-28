@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const restaurantListContainer = document.getElementById("restaurant_liste");
 
-    // Function to fetch restaurants from API
     function fetchRestaurants() {
         const xhr = new XMLHttpRequest();
         xhr.open("GET", "http://localhost:8080/api/restaurants", true);
@@ -11,14 +10,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 try {
                     const restaurants = JSON.parse(xhr.responseText);
 
-                    // Clear the current list
                     restaurantListContainer.innerHTML = "";
 
-                    // Populate with data from API
                     restaurants.forEach((restaurant) => {
                         const restaurantCard = document.createElement("div");
                         restaurantCard.classList.add("w-48", "border", "m-2", "rounded");
 
+                        // Create the link for the restaurant title
+                        const restaurantLink = document.createElement("a");
+                        restaurantLink.href = `restaurant.html?id=${restaurant.id}`; // Link to the restaurant detail page
+                        restaurantLink.classList.add("card-title-link"); // Optional class for styling
+
+                        // Build the card HTML
                         restaurantCard.innerHTML = `
                             <div class="row">
                                 <img src="/assets/images/restaurant/${restaurant.photo}" alt="${restaurant.nom}" class="img-fluid col">
@@ -31,6 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                         `;
 
+                        // Append the restaurant name as a clickable link
+                        restaurantCard.querySelector("h5").prepend(restaurantLink);
+
+                        // Append the card to the container
                         restaurantListContainer.appendChild(restaurantCard);
                     });
                 } catch (error) {
