@@ -15,14 +15,14 @@ document.getElementById('save-button').addEventListener('click', function() {
     document.getElementById('save-button').disabled = true; 
 
     var address = document.getElementById('nomVille').value;
-    console.log("Adresse à envoyer : ", address); // Ajout pour vérifier la valeur
+    console.log("Adresse à envoyer : ", address); 
 
     const xhr1 = new XMLHttpRequest();
     xhr1.open("PUT", "http://localhost:8080/api/villes", true);
     xhr1.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     xhr1.onload = function() {
-        console.log("Réponse du serveur : ", xhr1.responseText); // Ajout pour vérifier la réponse
+        console.log("Réponse du serveur : ", xhr1.responseText);
         if (xhr1.status === 200) {
             try {
                 var response = JSON.parse(xhr1.responseText);
@@ -36,7 +36,7 @@ document.getElementById('save-button').addEventListener('click', function() {
     };
 
     var data = JSON.stringify({ "nom": address });
-    console.log("Données envoyées : ", data); // Ajout pour vérifier les données envoyées
+    console.log("Données envoyées : ", data);
     xhr1.send(data);
 });
 
@@ -46,6 +46,10 @@ const villeNomContainer = document.getElementById('nomVille');
 const adresseContainer = document.getElementById('numero');
 const codePostalContainer = document.getElementById('code_postal');
 const complementContainer = document.getElementById('complement');
+const prenomContainer = document.getElementById('prenom');
+const nomContainer = document.getElementById('nom');
+const telmobileContainer = document.getElementById('tel_mobile');
+const mailContainer = document.getElementById('mail');
     
 function fetchParameter() {
     const xhr = new XMLHttpRequest();
@@ -168,6 +172,128 @@ function fetchParameter() {
     };
 
     xhr4.send();
+
+    const xhr5 = new XMLHttpRequest();
+    xhr5.open("GET", "http://localhost:8080/api/utilisateurs", true);
+
+    xhr5.onload = function() {
+        if (xhr5.status === 200) {
+            try {
+                const users = JSON.parse(xhr5.responseText);
+                if (users.length > 0) {
+                    const firstUser = users[0];
+                    prenomContainer.value = firstUser.prenom;
+                } else {
+                    prenomContainer.value = "Aucun utilisateur trouvé";
+                }
+            } catch (error) {
+                console.error("Erreur lors de l'analyse de la réponse de l'API :", error);
+                prenomContainer.value = "Erreur lors de l'analyse des données";
+            }
+        } else {
+            console.error("Échec de la récupération des adresses. Statut :", xhr.status);
+            prenomContainer.value = "Erreur lors de la récupération des données";
+        }
+    };
+
+    xhr5.onerror = function () {
+        console.error("Échec de la requête");
+        prenomContainer.value = "Échec de la requête";
+    };
+
+    xhr5.send();
+
+
+    const xhr6 = new XMLHttpRequest();
+    xhr6.open("GET", "http://localhost:8080/api/utilisateurs", true);
+
+    xhr6.onload = function() {
+        if (xhr6.status === 200) {
+            try {
+                const users = JSON.parse(xhr6.responseText);
+                if (users.length > 0) {
+                    const firstUser = users[0];
+                    nomContainer.value = firstUser.nom;
+                } else {
+                    nomContainer.value = "Aucun utilisateur trouvé";
+                }
+            } catch (error) {
+                console.error("Erreur lors de l'analyse de la réponse de l'API :", error);
+                nomContainer.value = "Erreur lors de l'analyse des données";
+            }
+        } else {
+            console.error("Échec de la récupération des adresses. Statut :", xhr.status);
+            nomContainer.value = "Erreur lors de la récupération des données";
+        }
+    };
+
+    xhr6.onerror = function () {
+        console.error("Échec de la requête");
+        nomContainer.value = "Échec de la requête";
+    };
+
+    xhr6.send();
+
+    const xhr7 = new XMLHttpRequest();
+    xhr7.open("GET", "http://localhost:8080/api/utilisateurs", true);
+
+    xhr7.onload = function() {
+        if (xhr7.status === 200) {
+            try {
+                const users = JSON.parse(xhr7.responseText);
+                if (users.length > 0) {
+                    const firstUser = users[0];
+                    telmobileContainer.value = firstUser.telMobile;
+                } else {
+                    telmobileContainer.value = "Aucun utilisateur trouvé";
+                }
+            } catch (error) {
+                console.error("Erreur lors de l'analyse de la réponse de l'API :", error);
+                telmobileContainer.value = "Erreur lors de l'analyse des données";
+            }
+        } else {
+            console.error("Échec de la récupération des adresses. Statut :", xhr.status);
+            telmobileContainer.value = "Erreur lors de la récupération des données";
+        }
+    };
+
+    xhr7.onerror = function () {
+        console.error("Échec de la requête");
+        telmobileContainer.value = "Échec de la requête";
+    };
+
+    xhr7.send();
+
+    const xhr8 = new XMLHttpRequest();
+    xhr8.open("GET", "http://localhost:8080/api/utilisateurs", true);
+
+    xhr8.onload = function() {
+        if (xhr8.status === 200) {
+            try {
+                const users = JSON.parse(xhr8.responseText);
+                if (users.length > 0) {
+                    const firstUser = users[0];
+                    mailContainer.value = firstUser.mail;
+                } else {
+                    mailContainer.value = "Aucun utilisateur trouvé";
+                }
+            } catch (error) {
+                console.error("Erreur lors de l'analyse de la réponse de l'API :", error);
+                mailContainer.value = "Erreur lors de l'analyse des données";
+            }
+        } else {
+            console.error("Échec de la récupération des utilisateurs. Statut :", xhr.status);
+            mailContainer.value = "Erreur lors de la récupération des données";
+        }
+    };
+
+    xhr8.onerror = function () {
+        console.error("Échec de la requête");
+        mailContainer.value = "Échec de la requête";
+    };
+
+    xhr8.send();
+
 
 }
 
