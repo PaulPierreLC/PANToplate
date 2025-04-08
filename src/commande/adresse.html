@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <HTML>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="/assets/styles/style.css">
-        <link rel="stylesheet" href="/assets/styles/custom.css">
-        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <title>PANToplate - Restauration</title>
-        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
-    </head>
-    <body id="adresse">
-        <header class="py-1 text-white">
-            <img src="/assets/images/Header et Footer/Logo II.png">
-            <div class="titre">
-                <a href="/src/index.html">
-                    <h1 class="title mb-0 me-auto text-white">
-                        <span class="praise">Pan</span> <span class="poppins">to plate</span>
-                    </h1>
-                </a>
-            </div>
-            <div class="search-bar">
-                <button>X</button>
-                <input type="text" placeholder="Recherchez une ville...">
-            </div>
-            <div class="nav-item">
-                <a href="#">
-                    <i class="cart bi bi-cart3 h2 text-white"></i>
-                </a>
-            </div>
-            <div class="connexion">
-                <a href="#">
-                    <button class="btn-connexion">Connexion
-                        <i class="bi bi-box-arrow-in-right"></i>
-                    </button>
-                </a>    
-            </div>
-            <div class="profil">
-                <a href="#">
-                    <i class="bi bi-person text-white h1"></i>
-                </a>
-            </div>
-        </header>
-        <main>
-            <div class="background"></div>
-            <div class="container-fluid d-flex justify-content-center align-items-center full-screen">
-                <div class="text-center p-5 rounded-5 bg_transparent w-50">
-                    <h1 class="h1 big_text fw-bold">Faites vous livrer</h1>
-                    <p class="big_text fw-bold">Maintenant!</p>
-                    <form class="d-flex mt-5" role="search" action="restaurants.html" method="GET">
-                        <input class="form-control me-2 w-50" type="search" placeholder="Adresse" aria-label="Search">
-                        <div class="dropdown me-2 w-25">
-                            <button id="btnTime" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Heure
-                            </button>
-                            <ul id="timeDropdown" class="dropdown-menu dropdown-menu-scroll w-100" aria-labelledby="dropdownMenuButton">
-                                <script src="/assets/scripts/commande/adresse.js"></script>
-                            </ul>
-                        </div>
-                        <button class="btn btn-success w-25" type="submit">GO!</button>
-                    </form>
-                </div>
-            </div>
-        </main>
-        <footer class="py-2 fixed-bottom">
-            <div class="footer-content">
-                <ul class="footer-social-links list-inline">
-                    <li class="list-inline-item bi-instagram h2"><a href="#">  </a></li>
-                    <li class="list-inline-item bi bi-facebook h2"><a href="#"> </a></li>
-                    <li class="list-inline-item bi bi-twitter h2"><a href="#"></a></li>   
-                </ul>
-                <ul class="footer-mention">
-                    <li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
-                    <li><a href="#">Cookies</a></li>
-                    <li><a href="/src/politique de confidentialité/confidentialité.html">Politique de confidentialité</a></li>
-                    <li><a href="#">© Pan to Plate FRANCE 2024 Created by PANT</a></li>
-                </ul>
-            </div>
-        </footer>
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/assets/styles/style.css">
+		<link rel="stylesheet" href="/assets/styles/custom.css">
+		<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<title>PANToplate - Restauration</title>
+		<link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+	</head>
+	<body id="adresse">
+		<header class="py-1 text-white">
+			<img src="/assets/images/Header et Footer/Logo II.png">
+			<div class="titre">
+				<a href="/src/index.html">
+					<h1 class="title mb-0 me-auto text-white">
+						<span class="praise">Pan</span> <span class="poppins">to plate</span>
+					</h1>
+				</a>
+			</div>
+			<div class="search-bar">
+				<button>X</button>
+				<input type="text" placeholder="Recherchez une ville...">
+			</div>
+			<div class="nav-item">
+				<a href="#">
+					<i class="cart bi bi-cart3 h2 text-white"></i>
+				</a>
+			</div>
+			<div class="connexion">
+				<a href="#">
+					<button class="btn-connexion">Connexion
+						<i class="bi bi-box-arrow-in-right"></i>
+					</button>
+				</a>
+			</div>
+			<div class="profil">
+				<a href="#">
+					<i class="bi bi-person text-white h1"></i>
+				</a>
+			</div>
+		</header>
+		<main>
+			<div class="background"></div>
+			<div class="container-fluid d-flex justify-content-center align-items-center full-screen">
+				<div class="text-center p-5 rounded-5 bg_transparent w-50">
+					<h1 class="h1 big_text fw-bold">Faites vous livrer</h1>
+					<p class="big_text fw-bold">Maintenant!</p>
+					<form class="d-flex mt-5" role="search" action="restaurants.html" method="GET">
+						<div class="position-relative mb-3">
+							<input type="text" id="addressInput" class="form-control" placeholder="Recherchez une adresse..." autocomplete="off">
+							<input type="hidden" id="addressSelected" name="address" value="">
+							<div id="addressResults" class="dropdown-menu w-100 overflow-auto" style="max-height: 200px;"></div>
+						</div>
+						<div class="dropdown me-2 w-25">
+							<button id="btnTime" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Heure
+							</button>
+							<ul id="timeDropdown" class="dropdown-menu dropdown-menu-scroll w-100" aria-labelledby="dropdownMenuButton">
+								<script src="/assets/scripts/commande/adresse.js"></script>
+							</ul>
+						</div>
+						<button class="btn btn-success w-25" type="submit" id="submitBtn" disabled>GO!</button>
+					</form>
+				</div>
+			</div>
+		</main>
+		<footer class="py-2 fixed-bottom">
+			<div class="footer-content">
+				<ul class="footer-social-links list-inline">
+					<li class="list-inline-item bi-instagram h2"><a href="#">  </a></li>
+					<li class="list-inline-item bi bi-facebook h2"><a href="#"> </a></li>
+					<li class="list-inline-item bi bi-twitter h2"><a href="#"></a></li>
+				</ul>
+				<ul class="footer-mention">
+					<li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
+					<li><a href="#">Cookies</a></li>
+					<li><a href="/src/politique de confidentialité/confidentialité.html">Politique de confidentialité</a></li>
+					<li><a href="#">© Pan to Plate FRANCE 2024 Created by PANT</a></li>
+				</ul>
+			</div>
+		</footer>
+	</body>
 </HTML>
