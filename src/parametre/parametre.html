@@ -137,6 +137,39 @@
                 <input id="code_postal" class="input-group-text border border-black" value="" disabled>
               </div>
             </div>
+            <h1>Ajouter une Nouvelle Adresse</h1>
+            <div class="d-flex">
+              <div class="me-5 mb-3">
+                <p>Numéro :</p>
+                <input id="newNumero" class="input-group-text border border-black" placeholder="Numéro">
+              </div>
+              <div class="mb-3">
+                <p>Rue :</p>
+                <input id="newRue" class="input-group-text border border-black" placeholder="Rue">
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="me-5 mb-3">
+                <p>Ville :</p>
+                <input id="newNomVille" class="input-group-text border border-black" placeholder="Ville">
+              </div>
+              <div class="mb-3">
+                <p>Code Postal :</p>
+                <input id="newCodePostal" class="input-group-text border border-black" placeholder="Code Postal">
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="me-5 mb-3">
+                <p>Complément Adresse :</p>
+                <input id="newComplement" class="input-group-text border border-black" placeholder="Complément Adresse">
+              </div>
+              <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="defaultCheckbox">
+                <label class="form-check-label" for="defaultCheckbox">Définir comme adresse par défaut</label>
+              </div>
+            </div>
+            <button id="addNewAdresse" class="btn btn-success">Ajouter l'Adresse</button>
+
             
             <div class="mb-3">
               <p>Téléphone :</p>
@@ -144,7 +177,6 @@
             </div>
             <button id="edit-button">Modifier</button>
             <button id="save-button">Enregistrer</button>
-            <script src="/assets/scripts/js-parametre/parameter.js"></script>
           </div>
           <br><br><br>
           <h1>Mot de passe</h1>
@@ -170,7 +202,7 @@
           <div class="mb-3">
             <section id="E-mail"></section>
             <p><h1>E-mail</h1></p>
-            <input id="mail" class="input-group-text border border-black" value="" disabled>
+            <input type="text" id="mail" class="input-group-text border border-black" value="" disabled>
             <br>
             <button class="w-25 rounded-4 pt-2 "><p>Modifier</p></button>
           </div>
@@ -239,5 +271,6 @@
           </ul>
       </div>
     </footer>
+  <script src="/assets/scripts/js-parametre/parameter.js"></script>
   </body>
 </html>
