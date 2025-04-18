@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         <h5 class="card-title m-4"></h5> <!-- This will be replaced with the restaurant link -->
                                         <p class="card-text">
                                             <strong>Téléphone:</strong> 
-                                            <a href="tel:${restaurant.telephone}">${restaurant.telephone}</a>
+                                            <a>${restaurant.telephone}</a>
                                         </p>
                                         <p class="card-text"><strong>Capacité:</strong> ${restaurant.capacite} personnes</p>
                                     </div>
