@@ -1,7 +1,7 @@
 function createDetailCard(detail) {
   const card = document.createElement("div");
   card.classList.add("col-10", "m-2", "card");
-  
+
   card.innerHTML = `
     <div class="card-body">
       <div class="row justify-content-between">
@@ -15,11 +15,11 @@ function createDetailCard(detail) {
       </div>
     </div>
   `;
-  
+
   return card;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const commandeId = urlParams.get("id");
 
@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(details => {
       const detailsContainer = document.getElementById("details-list");
       detailsContainer.innerHTML = "";
-      
+
       details.forEach(detail => {
-        const detailCard = createDetailCard(detail); 
+        const detailCard = createDetailCard(detail);
         detailsContainer.appendChild(detailCard);
       });
     })

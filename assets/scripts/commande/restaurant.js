@@ -14,7 +14,7 @@ function renderCart() {
   items.forEach(([name, data]) => {
     const li = document.createElement("li");
     li.classList.add("d-flex", "align-items-center", "mb-2");
-    
+
     const cartSubBtn = document.createElement("button");
     cartSubBtn.innerText = "-";
     cartSubBtn.classList.add("btn", "btn-sm", "btn-outline-danger", "me-2");
@@ -39,61 +39,61 @@ function createCommande() {
   console.debug(shoppingCart);
 
   fetch("http://localhost:8080/api/commandes", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: "{}"
-  })
-  .then(response => response.json())
-  .then(async data => {
-    const idCommande = data.id;
-    
-    fetch(`http://localhost:8080/api/commandeStatuts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        idCommande: idCommande,
-        idStatut: 1
-      })
+      body: "{}"
     })
+    .then(response => response.json())
+    .then(async data => {
+      const idCommande = data.id;
 
-    const detailPromises = Object.values(shoppingCart).map(plat => {
-      return fetch("http://localhost:8080/api/commandeDetails", {
+      fetch(`http://localhost:8080/api/commandeStatuts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           idCommande: idCommande,
-          idPlat: plat.id,
-          quantite: plat.quantity
+          idStatut: 1
         })
+      })
+
+      const detailPromises = Object.values(shoppingCart).map(plat => {
+        return fetch("http://localhost:8080/api/commandeDetails", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            idCommande: idCommande,
+            idPlat: plat.id,
+            quantite: plat.quantity
+          })
+        });
       });
+
+      await Promise.all(detailPromises);
+      location.href = `commande.html?id=${idCommande}`;
+      return;
+    })
+    .catch(error => {
+      console.error("Error creating commande:", error);
     });
-    
-    await Promise.all(detailPromises);
-    location.href = `commande.html?id=${idCommande}`;
-    return;
-  })
-  .catch(error => {
-    console.error("Error creating commande:", error);
-  });
 }
 
 function updateCart(platNom, platId, change) {
   if (!shoppingCart[platNom] && change > 0) {
-    shoppingCart[platNom] = { 
+    shoppingCart[platNom] = {
       id: platId,
-      quantity: 0 
+      quantity: 0
     };
   }
 
   if (shoppingCart[platNom]) {
     shoppingCart[platNom].quantity += change;
-    
+
     if (shoppingCart[platNom].quantity <= 0) {
       delete shoppingCart[platNom];
     }
@@ -107,11 +107,11 @@ function updateAllPlatCardsUI() {
   Object.keys(platElements).forEach(platNom => {
     const el = platElements[platNom];
     const inCart = shoppingCart[platNom] && shoppingCart[platNom].quantity > 0;
-    
+
     if (el) {
       el.subBtn.style.display = inCart ? "inline" : "none";
       el.quantitySpan.style.display = inCart ? "inline" : "none";
-      
+
       if (inCart) {
         el.quantitySpan.textContent = shoppingCart[platNom].quantity;
       } else {
@@ -124,7 +124,7 @@ function updateAllPlatCardsUI() {
 function createPlatCard(plat) {
   const card = document.createElement("div");
   card.classList.add("col-5", "m-3", "card");
-  
+
   card.innerHTML = `
     <div class="card-body">
       <h5 class="card-title">${plat.nom}</h5>
@@ -137,20 +137,24 @@ function createPlatCard(plat) {
       </div>
     </div>
   `;
-  
+
   const subBtn = card.querySelector(".sub-btn");
   const addBtn = card.querySelector(".add-btn");
   const quantitySpan = card.querySelector(".quantity-label");
-  
-  platElements[plat.nom] = { subBtn, addBtn, quantitySpan };
-  
+
+  platElements[plat.nom] = {
+    subBtn,
+    addBtn,
+    quantitySpan
+  };
+
   addBtn.addEventListener("click", () => updateCart(plat.nom, plat.id, 1));
   subBtn.addEventListener("click", () => updateCart(plat.nom, plat.id, -1));
-  
+
   return card;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const restaurantId = urlParams.get("id");
 
@@ -174,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(plats => {
       const platsContainer = document.getElementById("plats-list");
       platsContainer.innerHTML = "";
-      
+
       plats.forEach(plat => {
         const platCard = createPlatCard(plat);
         platsContainer.appendChild(platCard);

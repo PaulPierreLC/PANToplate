@@ -1,6 +1,6 @@
 // function filterCards(category) {
 //     const container = document.querySelector('.row-cols-2.row-cols-lg-3.row-cols-xl-4');
-    
+
 //     // Clear all current cards from the container
 //     container.innerHTML = '';
 
@@ -28,42 +28,42 @@
 /////////////////////////////////////////////////////////////////////////
 
 function filterRestaurants(categories) {
-    const restaurantsContainer = document.getElementById("restaurantsContainer");
-    let restaurants = restaurantsContainer.querySelectorAll('.col');
-    console.log(categories)
-    console.log(categories.length)
+  const restaurantsContainer = document.getElementById("restaurantsContainer");
+  let restaurants = restaurantsContainer.querySelectorAll('.col');
+  console.log(categories)
+  console.log(categories.length)
 
-    restaurantsContainer.innerHTML = '';
+  restaurantsContainer.innerHTML = '';
 
-    restaurants.forEach(restaurant => {
-        const card = restaurant.querySelector('.card');
-        const category = card.getAttribute('data-category');
-        if (categories.length == 0 || categories.includes(category)) {
-            restaurantsContainer.appendChild(restaurant);
-        }
-    });
+  restaurants.forEach(restaurant => {
+    const card = restaurant.querySelector('.card');
+    const category = card.getAttribute('data-category');
+    if (categories.length == 0 || categories.includes(category)) {
+      restaurantsContainer.appendChild(restaurant);
+    }
+  });
 }
 
 document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', function (e) {
-        const category = this.getAttribute('data-category');
-        const index = categories_selected.indexOf(category);
+  button.addEventListener('click', function (e) {
+    const category = this.getAttribute('data-category');
+    const index = categories_selected.indexOf(category);
 
-        if (index > -1) {
-            console.log("-", category)
-            
-            categories_selected.splice(index, 1); // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array-in-javascript
-        } else {
-            console.log("+", category)
-            categories_selected.push(category);
-        }
+    if (index > -1) {
+      console.log("-", category)
 
-        filterRestaurants(categories_selected);
-    });
+      categories_selected.splice(index, 1); // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array-in-javascript
+    } else {
+      console.log("+", category)
+      categories_selected.push(category);
+    }
+
+    filterRestaurants(categories_selected);
+  });
 });
 
 let categories_selected = [];
 
-window.onload = function() {
-    
+window.onload = function () {
+
 };

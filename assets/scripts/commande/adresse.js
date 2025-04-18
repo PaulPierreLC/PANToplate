@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const addressInput = document.getElementById("addressInput");
   const addressResults = document.getElementById("addressResults");
   const addressSelected = document.getElementById("addressSelected");
@@ -10,16 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
       addressResults.style.display = "none";
       return;
     }
-    
+
     try {
       const response = await fetch(`https://data.geopf.fr/geocodage/search?q=${encodeURIComponent(query)}&limit=5`);
       const data = await response.json();
-      
+
       if (!data.features || data.features.length === 0) {
         addressResults.style.display = "none";
         return;
       }
-      
+
       populateAddressResults(data.features);
     } catch (error) {
       console.error("Erreur lors de la récupération des adresses:", error);
@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error("Invalid address data:", addresses);
       return;
     }
-    
+
     addressResults.innerHTML = ""
-    
+
     addresses.forEach(address => {
       const item = document.createElement("div");
       item.className = "p-2 border-bottom";
@@ -44,26 +44,26 @@ document.addEventListener("DOMContentLoaded", function() {
       isAddressSelected = true;
       console.log(isAddressSelected)
 
-      item.addEventListener("click", function() {
+      item.addEventListener("click", function () {
         addressInput.value = address.properties.label;
         addressResults.style.display = "none";
       });
-      
-      item.addEventListener("mouseover", function() {
+
+      item.addEventListener("mouseover", function () {
         this.style.backgroundColor = "#f0f0f0";
       });
-      
-      item.addEventListener("mouseout", function() {
+
+      item.addEventListener("mouseout", function () {
         this.style.backgroundColor = "transparent";
       });
-      
+
       addressResults.appendChild(item);
     });
-    
+
     addressResults.style.display = "block";
   }
 
-  addressInput.addEventListener("input", function() {
+  addressInput.addEventListener("input", function () {
     isAddressSelected = false;
     addressSelected.value = "";
     console.log(isAddressSelected)
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  document.addEventListener("click", function(event) {
+  document.addEventListener("click", function (event) {
     if (event.target !== addressInput && event.target !== addressResults) {
       addressResults.style.display = "none";
     }
@@ -97,49 +97,49 @@ function getCurrentHour() {
 }
 
 function getCurrentMinute() {
-    const options = {
-      timeZone: 'Europe/Paris',
-      minute: '2-digit',
-    };
-  
-    const formatter = new Intl.DateTimeFormat([], options);
-    const cetTime = formatter.format(new Date());
-  
-    return parseInt(cetTime); // Convert to an integer
+  const options = {
+    timeZone: 'Europe/Paris',
+    minute: '2-digit',
+  };
+
+  const formatter = new Intl.DateTimeFormat([], options);
+  const cetTime = formatter.format(new Date());
+
+  return parseInt(cetTime); // Convert to an integer
 }
 
 function generateTimeDropdownItems() {
-    const timeDropdown = document.getElementById('timeDropdown');
-    const btnTime = document.getElementById('btnTime');
-    
-    const curr_hour = getCurrentHour();
-    const curr_minute = getCurrentMinute();
+  const timeDropdown = document.getElementById('timeDropdown');
+  const btnTime = document.getElementById('btnTime');
+
+  const curr_hour = getCurrentHour();
+  const curr_minute = getCurrentMinute();
 
 
-    for (let hour = curr_hour; hour < 24; hour++) {
-        start_minute = 0;
-        if (hour === curr_hour) {
-            start_minute = Math.ceil(curr_minute / 15) * 15;
-        }
-
-        for (let minutes = start_minute; minutes < 60; minutes += 15) {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            
-            const time = `${String(hour).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-            
-            a.className = 'dropdown-item btn';
-            a.textContent = time;
-
-            a.addEventListener('click', function() {
-                btnTime.textContent = time; // Change button text
-            });
-            
-            li.appendChild(a);
-
-            timeDropdown.appendChild(li)
-        }
+  for (let hour = curr_hour; hour < 24; hour++) {
+    start_minute = 0;
+    if (hour === curr_hour) {
+      start_minute = Math.ceil(curr_minute / 15) * 15;
     }
+
+    for (let minutes = start_minute; minutes < 60; minutes += 15) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+
+      const time = `${String(hour).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+
+      a.className = 'dropdown-item btn';
+      a.textContent = time;
+
+      a.addEventListener('click', function () {
+        btnTime.textContent = time; // Change button text
+      });
+
+      li.appendChild(a);
+
+      timeDropdown.appendChild(li)
+    }
+  }
 }
 
 window.onload = generateTimeDropdownItems;
