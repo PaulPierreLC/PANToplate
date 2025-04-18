@@ -18,7 +18,7 @@ function renderCart() {
     const cartSubBtn = document.createElement("button");
     cartSubBtn.innerText = "-";
     cartSubBtn.classList.add("btn", "btn-sm", "btn-outline-danger", "me-2");
-    cartSubBtn.addEventListener("click", () => updateCart(name, -1));
+    cartSubBtn.addEventListener("click", () => updateCart(name, data.id, -1));
 
     const span = document.createElement("span");
     span.textContent = `${name} x ${data.quantity}`;
@@ -26,11 +26,69 @@ function renderCart() {
     li.append(cartSubBtn, span);
     cartItems.appendChild(li);
   });
+
+  const cartCommandeBtn = document.createElement("button");
+  cartCommandeBtn.innerText = "Commander";
+  cartCommandeBtn.classList.add("btn", "btn-success");
+  cartCommandeBtn.addEventListener("click", () => createCommande());
+
+  cartItems.appendChild(cartCommandeBtn);
 }
 
-function updateCart(platNom, change) {
+function createCommande() {
+  console.debug(shoppingCart);
+
+  fetch("http://localhost:8080/api/commandes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: "{}"
+  })
+  .then(response => response.json())
+  .then(async data => {
+    const idCommande = data.id;
+    
+    fetch(`http://localhost:8080/api/commandeStatuts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        idCommande: idCommande,
+        idStatut: 1
+      })
+    })
+
+    const detailPromises = Object.values(shoppingCart).map(plat => {
+      return fetch("http://localhost:8080/api/commandeDetails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          idCommande: idCommande,
+          idPlat: plat.id,
+          quantite: plat.quantity
+        })
+      });
+    });
+    
+    await Promise.all(detailPromises);
+    location.href = `commande.html?id=${idCommande}`;
+    return;
+  })
+  .catch(error => {
+    console.error("Error creating commande:", error);
+  });
+}
+
+function updateCart(platNom, platId, change) {
   if (!shoppingCart[platNom] && change > 0) {
-    shoppingCart[platNom] = { quantity: 0 };
+    shoppingCart[platNom] = { 
+      id: platId,
+      quantity: 0 
+    };
   }
 
   if (shoppingCart[platNom]) {
@@ -42,7 +100,6 @@ function updateCart(platNom, change) {
   }
 
   updateAllPlatCardsUI();
-  
   renderCart();
 }
 
@@ -71,7 +128,7 @@ function createPlatCard(plat) {
   card.innerHTML = `
     <div class="card-body">
       <h5 class="card-title">${plat.nom}</h5>
-      <p class="card-text">${plat.prix}€ ${plat.note ? `- ${plat.note}★` : ''}</p>
+      <p class="card-text">${plat.prix}€</p>
       <p class="card-text"><small class="text-body-secondary">${plat.description || ''}</small></p>
       <div class="d-grid gap-2 d-flex justify-content-end">
         <button class="btn btn-sm btn-outline-dark rounded-3 sub-btn" style="display: none;">-</button>
@@ -87,8 +144,8 @@ function createPlatCard(plat) {
   
   platElements[plat.nom] = { subBtn, addBtn, quantitySpan };
   
-  addBtn.addEventListener("click", () => updateCart(plat.nom, 1));
-  subBtn.addEventListener("click", () => updateCart(plat.nom, -1));
+  addBtn.addEventListener("click", () => updateCart(plat.nom, plat.id, 1));
+  subBtn.addEventListener("click", () => updateCart(plat.nom, plat.id, -1));
   
   return card;
 }

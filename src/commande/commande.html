@@ -21,36 +21,25 @@
             </div>
         </header>
         <main class="plat container">
-            <div class="col my-5">
-                <div class="row mb-2 shadow">
-                    <div class="col m-4">
-                        <img id="restaurant-image" src="" alt="" class="img-fluid w-100 rounded">
-                    </div>
-                    <div class="col-8 m-2">
-                        <div class="row">
-                            <p id="restaurant-name" class="h1 text-center"></p>
-                        </div>
-                        <div class="row" id="restaurant-capacite"></div>
-                        <div class="row" id="restaurant-telephone"></div>
-                    </div>
+          <div class="row my-5 justify-content-evenly">
+            <div class="col-6">
+              <div class="row shadow">
+                <div class="row">
+                  <p class="h2 m-3 fw-bold">Votre commande</p>
                 </div>
-                <div class="row mt-5">
-                    <div class="col">
-                        <div class="row shadow">
-                            <div class="row">
-                                <p class="h2 m-3 fw-bold">Plats</p>
-                            </div>
-                            <div id="plats-list" class="row ms-5 my-2"></div>
-                        </div>
-                    </div>
+                <div id="details-list" class="row ms-5 my-2"></div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="row shadow">
+                <div class="row">
+                  <p class="h2 m-3 fw-bold">Votre commande</p>
                 </div>
-            </div>
-            <div id="cart-summary" class="position-fixed bottom-0 end-0 m-3 p-3 bg-white border rounded shadow" style="display:none;">
-                <h6 class="border-bottom border-secondary pb-2">🛒 Panier</h6>
-                <ul id="cart-items" class="list-unstyled mb-0"></ul>
-            </div>
+                <div id="details-list" class="row ms-5 my-2"></div>
+              </div>
+          </div>
         </main>
-        <footer class="py-2">
+        <footer class="py-2 fixed-bottom">
             <div class="footer-content">
                 <ul class="footer-mention">
                     <li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
@@ -60,6 +49,6 @@
                 </ul>
             </div>
         </footer>
-        <script src="/assets/scripts/commande/restaurant.js"></script>
+        <script src="/assets/scripts/commande/commande.js"></script>
     </body>
 </html>
