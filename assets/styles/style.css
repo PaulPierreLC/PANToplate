@@ -143,18 +143,18 @@
 /********** Adresse **********/
 
 #adresse {
-    overflow: hidden; /* Remove both horizontal and vertical scroll bars */
+    overflow: hidden;
 }
 
 #adresse .full-screen {
-    height: 100vh; /* 100% of the viewport height */
+    height: 100vh;
 }
 
 #adresse .background {
     background-image: url("/assets/images/food_platter1.jpg");
-    background-size: cover;  /* Make sure the image covers the entire area */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Avoid repeating the image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
     height: 100vh; 
@@ -164,8 +164,8 @@
 }
 
 #adresse .dropdown-menu-scroll {
-    max-height: 200px; /* Adjust this value to control the dropdown height */
-    overflow-y: auto;  /* Enable vertical scrolling */
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 #adresse .bg_transparent {
@@ -211,19 +211,12 @@
     opacity: 0.5;
 }
 
-/********** Plat **********/
-
-#plat .object_fit {
-    object-fit: cover;
-}
-
 /********** Livraison **********/
 
 #map {
     width:100%;
     height:400px;
 }
-
 
 /******************** HEADER FOOTER ********************/
 
