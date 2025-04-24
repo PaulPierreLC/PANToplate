@@ -48,77 +48,61 @@
         <div class="col">
             <div class="row">
                 <div class="col"></div>
-                <div class="col ">
+                <div class="col">
                     <div class="bg-light p-2 rounded-4" style="margin-top: 25vh; margin-right: 5vw;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group py-1">
-                                        <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse-e-mail">
+                        <form id="registrationForm">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse-e-mail" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Téléphone" required>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group py-1">
-                                        <input type="text" class="form-control" id="mailConfirmation" placeholder="Confirmez votre adresse-e-mail">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group py-1">
+                                            <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group py-1">
-                                    <input type="text" class="form-control" id="pseudonyme" placeholder="Entrez votre Nom d'utilisateur">
+                                    <input type="date" class="form-control" id="naissance" name="naissance" placeholder="Date de naissance" required>
                                 </div>
+                                <div class="dropdown py-1">
+                                    <button class="btn border dropdown-toggle bg-light w-100" type="button" id="genre" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Sélectionnez votre genre
+                                    </button>
+                                    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" id="genreOptions">
+                                        <li><a class="dropdown-item" href="#" data-value="Homme">Homme</a></li>
+                                        <li><a class="dropdown-item" href="#" data-value="Femme">Femme</a></li>
+                                        <li><a class="dropdown-item" href="#" data-value="Autre">Autre</a></li>
+                                    </ul>
+                                    <input type="hidden" id="selectedGenre" name="genre" required>
+                                </div>
+                                <div class="form-group py-1">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
+                                </div>
+                                <div class="form-group py-1">
+                                    <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation" placeholder="Confirmez votre mot de passe" required>
+                                </div>
+                                <div id="passwordError" style="color: red; display: none;">Les mots de passe ne correspondent pas.</div>
+                                <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
                             </div>
-                            <div class="row ">
-                                <div class="col">
-                                    <div class="form-group py-1">
-                                        <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group py-1">
-                                        <input type="password" class="form-control" id="passwordConfirmation" placeholder="Confirmez votre mot de passe">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group py-1">
-                                        <input type="text" class="form-control" id="pseudonyme" placeholder="Date de naissance JJ/MM/AA *">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="dropdown py-1">
-                                        <button class="btn border dropdown-toggle bg-light w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Sélectionnez votre genre *
-                                        </button>
-                                        <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">Homme</a></li>
-                                            <li><a class="dropdown-item" href="#">Femme</a></li>
-                                            <li><a class="dropdown-item" href="#">Autre</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex align-items-center">
-                                <div class="col d-flex justify-content-center mt-3">
-                                    <a href="">
-                                        <button type="button" class="btn  w-auto mb-2 border-black flex-column">Inscription</button>
-                                    </a>
-                                </div>
-                                <div class="col d-flex">
-                                    <a href="connexion.html">
-                                        <button type="button" class="btn btn-link btn-block">Déjà inscrit ? Se connecter</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row d-flex align-items-center">
-                                <div class="col d-flex justify-content-center">
-                                    <p style="font-size: 10px;">* En cliquant sur Inscription, vous acceptez notre politique d'utilisation de vos données et notre reglemment interieur.</p>
-                                </div>  
-                            </div>
-                        </div>
-                    </div> 
+                        </form>
+                    </div>
                 </div>
+                <div class="col"></div>
             </div>
         </div>
     </div>
@@ -139,7 +123,7 @@
         </ul>
     </div>
   </footer>
-<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/scripts/js-accueil/script.js"></script>
+<script src="/scripts/inscription.js"></script>
 </body>
 </html>
