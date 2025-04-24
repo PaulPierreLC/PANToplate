@@ -152,115 +152,40 @@ function patchData(apiEndpoint, id, updatedFields) {
     xhr.send(JSON.stringify(updatedFields));
 }
 
-function getVilleId(nomVille, codePostal, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", `http://localhost:8080/api/villes?nom=${encodeURIComponent(nomVille)}&codePostal=${encodeURIComponent(codePostal)}`, true);
-    
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            const villes = JSON.parse(xhr.responseText);
-            if (villes.length > 0) {
-                callback(villes[0].id); // La ville existe, on récupère son ID
-            } else {
-                callback(null); // Ville non trouvée, on devra la créer
-            }
-        } else {
-            console.error("Erreur lors de la recherche de la ville. Statut :", xhr.status);
-            callback(null);
-        }
-    };
 
-    xhr.onerror = function () {
-        console.error("Échec de la requête");
-        callback(null);
-    };
-
-    xhr.send();
-}
-
-function createVille(nomVille, codePostal, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/api/villes", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onload = function () {
-        if (xhr.status === 201 || xhr.status === 200) {
-            const ville = JSON.parse(xhr.responseText);
-            callback(ville.id); // On récupère l'ID de la ville créée
-        } else {
-            console.error("Échec de la création de la ville. Statut :", xhr.status);
-            callback(null);
-        }
-    };
-
-    xhr.onerror = function () {
-        console.error("Échec de la requête");
-        callback(null);
-    };
-
-    const villeData = { nom: nomVille, codePostal: codePostal };
-    xhr.send(JSON.stringify(villeData));
-}
-
-function sendUserData(apiEndpoint, data, container) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", `http://localhost:8080/api/${apiEndpoint}`, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onload = function () {
-        if (xhr.status === 200 || xhr.status === 201) {
-            container.textContent = "Données envoyées avec succès";
-        } else {
-            console.error("Échec de l'envoi des données. Statut :", xhr.status);
-            container.textContent = "Erreur lors de l'envoi des données";
-        }
-    };
-
-    xhr.onerror = function () {
-        console.error("Échec de la requête");
-        container.textContent = "Échec de la requête";
-    };
-
-    xhr.send(JSON.stringify(data));
-}
-
-
-document.getElementById("addNewAdresse").addEventListener("click", function() {
-    console.log("Bouton cliqué !");
-    
+async function postData() {
+    console.log("On entre dans la fonction postData");
+    const newnumero = document.getElementById("newNumero").value;
+    const newrue = document.getElementById("newRue").value;
+    const newcomplement = document.getElementById("newComplement").value;
+    const estDefaut = document.getElementById("defaultCheckbox").checked; 
     const nomVille = document.getElementById("newNomVille").value;
     const codePostal = document.getElementById("newCodePostal").value;
-
-    getVilleId(nomVille, codePostal, function(idVille) {
-        if (idVille) {
-            // La ville existe, on peut créer l'adresse
-            sendAdresse(idVille);
-        } else {
-            // La ville n'existe pas, on la crée d'abord
-            createVille(nomVille, codePostal, function(newVilleId) {
-                if (newVilleId) {
-                    sendAdresse(newVilleId);
-                } else {
-                    console.error("Impossible de récupérer l'ID de la ville.");
-                }
-            });
+  
+    const adresseData = {
+        "numero": newnumero,
+        "rue": newrue,
+        "complement": newcomplement,
+        "estDefaut": estDefaut,
+        "idVille": {
+            "id": "3",
+            "nom": "Brest",
+            "codePostal": "29200"
         }
-    });
-});
-
-function sendAdresse(idVille) {
-    const newAdresse = {
-        numero: document.getElementById("newNumero").value,
-        rue: document.getElementById("newRue").value,
-        complement: document.getElementById("newComplement").value,
-        estDefaut: document.getElementById("defaultCheckbox").checked,
-        ville: { id: idVille } // Associer correctement l'ID de la ville
     };
+  
+    console.log("Objet adresse envoyé :", JSON.stringify(adresseData));
+  
+    fetch("http://localhost:8080/api/adresses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(adresseData)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
+  }
 
-    const container = document.createElement("p");
-    document.body.appendChild(container);
-
-    console.log("Objet adresse envoyé :", JSON.stringify(newAdresse));
-    sendUserData("adresses", newAdresse, container);
-}
-
+  document.getElementById("addNewAdresse").addEventListener("click", postData);
+  
