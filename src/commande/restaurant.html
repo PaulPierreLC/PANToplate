@@ -12,15 +12,36 @@
 </head>
 
 <body id="restaurant">
-	<header class="py-1 text-white">
-		<img src="/assets/images/Header et Footer/Logo II.png">
-		<div class="titre">
-			<a href="/src/index.html">
-				<h1 class="title mb-0 me-auto text-white">
-					<span class="praise">Pan</span> <span class="poppins">to plate</span>
-				</h1>
+	<header class="py-1 text-white d-flex align-items-center">
+		<div class="d-flex align-items-center flex-shrink-0">
+			<img src="/assets/images/Header et Footer/Logo II.png" alt="Logo">
+			<div class="titre ms-4">
+				<a href="/src/index.html" class="text-decoration-none">
+					<h1 class="title mb-0 text-white">
+						<span class="praise">Pan</span> <span class="poppins">to plate</span>
+					</h1>
+				</a>
+			</div>
+		</div>
+		<div class="flex-grow-1 text-center">
+			<a href="/src/commande/adresse.html" id="adresseHeader" class="text-decoration-none fs-3 fw-bold text-white">
 			</a>
 		</div>
+		<div class="d-flex align-items-center flex-shrink-0">
+			<div class="connexion me-3">
+				<a href="#">
+					<button class="btn-connexion">Connexion
+						<i class="bi bi-box-arrow-in-right"></i>
+					</button>
+				</a>
+			</div>
+			<div class="profil">
+				<a href="#">
+					<i class="bi bi-person text-white h1"></i>
+				</a>
+			</div>
+		</div>
+		<script src="/assets/scripts/commande/header.js"></script>
 	</header>
 	<main class="plat container">
 		<div class="col my-5">
@@ -55,11 +76,16 @@
 	</main>
 	<footer class="py-2">
 		<div class="footer-content">
+			<ul class="footer-social-links list-inline">
+				<li class="list-inline-item bi-instagram h2"><a href="#"> </a></li>
+				<li class="list-inline-item bi bi-facebook h2"><a href="#"> </a></li>
+				<li class="list-inline-item bi bi-twitter h2"><a href="#"></a></li>
+			</ul>
 			<ul class="footer-mention">
 				<li><a href="/src/mentions légales/mentions_legales.html">Mentions légales</a></li>
 				<li><a href="#">Cookies</a></li>
 				<li><a href="/src/politique de confidentialité/confidentialité.html">Politique de confidentialité</a></li>
-				<li><a href="#">© Pan to Plate FRANCE 2024 Created by NAPT</a></li>
+				<li><a href="#">© Pan to Plate FRANCE 2024 Created by PANT</a></li>
 			</ul>
 		</div>
 	</footer>
