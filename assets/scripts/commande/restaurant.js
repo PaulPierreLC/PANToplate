@@ -37,13 +37,20 @@ function renderCart() {
 
 function createCommande() {
   console.debug(shoppingCart);
+  idClient = 1; // TODO: remplacer par l'utilisateur de la session actuel
+  heure = sessionStorage.getItem("heure")
+  heure = sessionStorage.getItem("heure")
+
+  fetch("http://localhost:8080/api/adresses/nom/", {
+
+  })
 
   fetch("http://localhost:8080/api/commandes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: "{}"
+      body: id
     })
     .then(response => response.json())
     .then(async data => {
