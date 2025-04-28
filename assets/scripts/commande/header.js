@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	if (adresse && heure) {
-		document.getElementById("adresseHeader").textContent = `${complement} ${adresse} , ${heure}`;
+		document.getElementById("adresseHeader").textContent = `${complement}, ${adresse}, ${heure}`;
 	}
 });

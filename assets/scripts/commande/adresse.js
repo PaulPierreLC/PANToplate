@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			item.className = "p-2 border-bottom";
 			item.style.cursor = "pointer";
 			item.textContent = address.properties.label;
+			item.addressData = address;
+
 
 			item.addEventListener("click", function () {
 				addressInput.value = address.properties.label;
@@ -87,17 +89,62 @@ document.addEventListener("DOMContentLoaded", function () {
 		sessionStorage.removeItem("adresse");
 		sessionStorage.removeItem("complement");
 		sessionStorage.removeItem("heure");
+		sessionStorage.removeItem("numero");
+		sessionStorage.removeItem("rue");
+		sessionStorage.removeItem("code_postal");
+		sessionStorage.removeItem("ville");
+		sessionStorage.removeItem("longitude");
+		sessionStorage.removeItem("latitude");
 
-		let adresseValue = document.getElementById("addressInput").value
-		let complementValue = document.getElementById("complementInput").value
-		let heureValue = document.getElementById("btnTime").textContent
+		let adresseValue = document.getElementById("addressInput").value;
+		let complementValue = document.getElementById("complementInput").value;
+		let heureValue = document.getElementById("btnTime").textContent;
+
+		let selectedAddress = addressResults.querySelector('[style*="display: none"]') ? null : null;
+		if (isAddressSelected && addressSelected.value) {
+			const addressFeatures = addressResults.querySelectorAll('div');
+			for (const feature of addressFeatures) {
+				if (feature.textContent === addressSelected.value) {
+					selectedAddress = feature;
+					break;
+				}
+			}
+		}
+
+		let numero = "";
+		let rue = "";
+		let codePostal = "";
+		let ville = "";
+		let longitude = "";
+		let latitude = "";
+
+		if (selectedAddress) {
+			let addressData = selectedAddress.addressData;
+			if (addressData) {
+				numero = addressData.properties.housenumber || "";
+				rue = addressData.properties.street || "";
+				codePostal = addressData.properties.postcode || "";
+				ville = addressData.properties.city || "";
+				if (Array.isArray(addressData.geometry.coordinates)) {
+					longitude = addressData.geometry.coordinates[0] || "";
+					latitude = addressData.geometry.coordinates[1] || "";
+				}
+			}
+		}
 
 		sessionStorage.setItem("adresse", adresseValue);
 		sessionStorage.setItem("complement", complementValue);
 		sessionStorage.setItem("heure", heureValue);
+		sessionStorage.setItem("numero", numero);
+		sessionStorage.setItem("rue", rue);
+		sessionStorage.setItem("codePostal", codePostal);
+		sessionStorage.setItem("ville", ville);
+		sessionStorage.setItem("longitude", longitude);
+		sessionStorage.setItem("latitude", latitude);
 
-		location.href = `restaurants.html`;
-	})
+		location.href = "restaurants.html";
+	});
+
 });
 
 function getCurrentHour() {
