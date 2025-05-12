@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	if (adresse && heure) {
-		document.getElementById("adresseHeader").textContent = `${complement}, ${adresse}, ${heure}`;
+		let adresse_information = `${adresse}, ${heure}`
+		if (complement) { adresse_information = complement.concat(", ", adresse_information) }
+		
+		document.getElementById("adresseHeader").textContent = adresse_information;
 	}
 });

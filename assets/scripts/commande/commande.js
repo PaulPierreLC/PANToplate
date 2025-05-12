@@ -68,8 +68,23 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       console.log(commandeTotal)
-      var commandeTotalDiv = document.getElementById("commandeTotal");
+			
+      var commandeHeureDiv = document.getElementById("commandeHeure");
+			var commandeAdresseDiv = document.getElementById("commandeAdresse");
+			var commandeTotalDiv = document.getElementById("commandeTotal");
+
+			let adresse = sessionStorage.adresse;
+			let complement = sessionStorage.complement;
+			let heure = sessionStorage.heure;
+
+			let adresse_information = adresse
+			if (complement) { adresse_information = complement.concat(", ", adresse_information) }
+
+			var commandeHeureContent = document.createTextNode(heure);
+			var commandeAdresseContent = document.createTextNode(adresse_information);
       var commandeTotalContent = document.createTextNode(`${commandeTotal}€`);
+			commandeHeureDiv.appendChild(commandeHeureContent);
+			commandeAdresseDiv.appendChild(commandeAdresseContent);
       commandeTotalDiv.appendChild(commandeTotalContent);
 
       var validate_btn = document.getElementById("validate_btn");
