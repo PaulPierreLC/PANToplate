@@ -10,12 +10,13 @@
 
 </head>
 <body>
-  <header class="py-1 text-white">
+<header class="py-1 text-white">
     <img src="/assets/images/Header et Footer/Logo II.png">
 <div class="titre">
   <a href="/src/index.html">
   <h1 class="title mb-0 me-auto text-white">
     <span class="praise">Pan</span> <span class="poppins">to plate</span>
+    
   </h1>
 </a>
 </div>
@@ -29,18 +30,18 @@
   </a>
   </div>
   <div class="connexion">
-    <a href="#">
-    <button class="btn-connexion">Connexion
-      <i class="bi bi-box-arrow-in-right"></i>
-      </button>
-    </a>    
-  </div>
+    <a href="connexion/connexion.html">
+        <button class="btn-connexion">Connexion
+            <i class="bi bi-box-arrow-in-right"></i>
+        </button>
+    </a>
 </div>
-<div class="profil">
-  <a href="#">
-    <i class="bi bi-person text-white h1"></i>
-  </a>
+<div class="profil" style="display: none;">
+    <a href="#" id="profil-link">
+        <i class="bi bi-person text-white h1"></i>
+    </a>
 </div>
+<div id="profil-session-info" style="display:none; background:#fff; color:#222; border-radius:8px; padding:1em; position:absolute; z-index:1000;"></div>
 </header>
     
 <main>
@@ -92,5 +93,6 @@
   </footer>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/scripts/js-accueil/script.js"></script>
+<script src="/assets/scripts/js-accueil/session.js"></script>
 </body>
 </html>
