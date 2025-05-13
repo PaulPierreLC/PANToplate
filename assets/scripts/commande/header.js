@@ -3,7 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	let complement = sessionStorage.complement;
 	let heure = sessionStorage.heure;
 
-	const adresseNeededPages = ["/src/commande/restaurants.html", "/src/commande/restaurant.html", "/src/commande/commande.html"];
+	const adresseNeededPages = [
+		"/src/commande/restaurants.html", 
+		"/src/commande/restaurant.html", 
+		"/src/commande/commande.html", 
+		"/src/commande/livraison.html"
+	];
 
 	if (adresseNeededPages.includes(window.location.pathname) && (!adresse || !heure)) {
 		window.location.href = "adresse.html";
