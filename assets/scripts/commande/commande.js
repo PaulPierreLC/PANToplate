@@ -1,8 +1,8 @@
 function createDetailCard(detail) {
-  const card = document.createElement("div");
-  card.classList.add("col-10", "m-2", "card");
+	const card = document.createElement("div");
+	card.classList.add("col-10", "m-2", "card");
 
-  card.innerHTML = `
+	card.innerHTML = `
     <div class="card-body">
       <div class="row">
         <div class="col-8">
@@ -16,60 +16,60 @@ function createDetailCard(detail) {
     </div>
   `;
 
-  return card;
+	return card;
 }
 
 async function validateCommande(commandeId) {
-  try {
-    const response = await fetch('http://localhost:8080/api/commandeStatuts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        idCommande: commandeId,
-        idStatut: 2
-      })
-    });
-    
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
-    }
-    
-    window.location.href = `livraison.html?id=${commandeId}`;
-  } catch (error) {
-    console.error('Failed to validate order:', error);
-    throw error;
-  }
+	try {
+		const response = await fetch('http://localhost:8080/api/commandeStatuts', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				idCommande: commandeId,
+				idStatut: 2
+			})
+		});
+
+		if (!response.ok) {
+			throw new Error(`Error: ${response.status} ${response.statusText}`);
+		}
+
+		window.location.href = `livraison.html?id=${commandeId}`;
+	} catch (error) {
+		console.error('Failed to validate order:', error);
+		throw error;
+	}
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const urlParams = new URLSearchParams(location.search);
-  const commandeId = urlParams.get("id");
-  let commandeTotal = 0;
+	const urlParams = new URLSearchParams(location.search);
+	const commandeId = urlParams.get("id");
+	let commandeTotal = 0;
 
-  if (!commandeId) {
-    location.href = "restaurants.html";
-    return;
-  }
+	if (!commandeId) {
+		location.href = "restaurants.html";
+		return;
+	}
 
-  fetch(`http://localhost:8080/api/commandeDetails/commande/${commandeId}`)
-    .then(response => response.json())
-    .then(details => {
-      const detailsContainer = document.getElementById("details-list");
-      detailsContainer.innerHTML = "";
+	fetch(`http://localhost:8080/api/commandeDetails/commande/${commandeId}`)
+		.then(response => response.json())
+		.then(details => {
+			const detailsContainer = document.getElementById("details-list");
+			detailsContainer.innerHTML = "";
 
-      details.forEach(detail => {
-        const detailCard = createDetailCard(detail);
-        detailsContainer.appendChild(detailCard);
-        commandeTotal += detail.idPlat.prix * detail.quantite;
-        console.log(commandeTotal)
+			details.forEach(detail => {
+				const detailCard = createDetailCard(detail);
+				detailsContainer.appendChild(detailCard);
+				commandeTotal += detail.idPlat.prix * detail.quantite;
+				console.log(commandeTotal)
 
-      });
+			});
 
-      console.log(commandeTotal)
-			
-      var commandeHeureDiv = document.getElementById("commandeHeure");
+			console.log(commandeTotal)
+
+			var commandeHeureDiv = document.getElementById("commandeHeure");
 			var commandeAdresseDiv = document.getElementById("commandeAdresse");
 			var commandeTotalDiv = document.getElementById("commandeTotal");
 
@@ -78,17 +78,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			let heure = sessionStorage.heure;
 
 			let adresse_information = adresse
-			if (complement) { adresse_information = complement.concat(", ", adresse_information) }
+			if (complement) {
+				adresse_information = complement.concat(", ", adresse_information)
+			}
 
 			var commandeHeureContent = document.createTextNode(heure);
 			var commandeAdresseContent = document.createTextNode(adresse_information);
-      var commandeTotalContent = document.createTextNode(`${commandeTotal}€`);
+			var commandeTotalContent = document.createTextNode(`${commandeTotal}€`);
 			commandeHeureDiv.appendChild(commandeHeureContent);
 			commandeAdresseDiv.appendChild(commandeAdresseContent);
-      commandeTotalDiv.appendChild(commandeTotalContent);
+			commandeTotalDiv.appendChild(commandeTotalContent);
 
-      var validate_btn = document.getElementById("validate_btn");
-      validate_btn.addEventListener("click", () => validateCommande(commandeId));
-    })
-    .catch(error => console.error("Error fetching detail:", error));
+			var validate_btn = document.getElementById("validate_btn");
+			validate_btn.addEventListener("click", () => validateCommande(commandeId));
+		})
+		.catch(error => console.error("Error fetching detail:", error));
 });
